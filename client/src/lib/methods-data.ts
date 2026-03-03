@@ -588,6 +588,32 @@ export const methods: Method[] = [
     cost: "Many tools have free tiers: Statsig, GrowthBook (open source). Enterprise tools: $100-1000/mo. AI coding tools make variant creation nearly free.",
     costLevel: "Variable",
     practicalApplication: "Use AI experimentation platforms to run more experiments faster. Multi-armed bandit algorithms automatically optimize traffic allocation, meaning you get answers sooner with less risk. The combination of AI variant creation + automated experimentation = continuous optimization."
+  },
+  {
+    id: 44,
+    name: "Moderated User Test (1:1)",
+    categories: ["Watch User with Artefact"],
+    phase: "Early Product",
+    evidenceStrength: 4,
+    evidenceDetail: "Evidence strength is low (1 out of 5). You observe real behavior on a real artefact and can probe in real time — asking 'why did you hesitate there?' turns a surface observation into a deep insight. The Hawthorne effect (people behave differently when watched) and social desirability bias reduce evidence quality somewhat. It's advisable to always run a moderated user test before directing 'real traffic' to your MVP: Nielsen Norman Group research shows 5 users uncover ~85% of usability problems.",
+    descriptionShort: "Sit with a target user while they use your product as they usually would (without direction) or complete tasks. The moderator observes, probes, and follows up in real time.",
+    descriptionFull: "Briefing (5 min): explain the purpose, set the participant at ease, emphasize there are no wrong answers.\n\nTask execution (20-40 min): participant works through 3-5 core tasks while thinking aloud OR uses the product as they usually would, without direction.\n\nDebrief (5-10 min): open-ended reflection, follow-up on moments of friction or delight.\n\n<strong>What makes moderated tests powerful:</strong>\n- You can probe: 'What did you expect to happen?'; 'What was your goal?' (especially powerful if executed immediately after a 1:1 landing page test) / 'Why did you go there first?'\n- You catch non-verbal cues: hesitation, facial expressions, posture shifts\n- You can adapt mid-session when something unexpected surfaces\n- Works with low-fidelity prototypes — the moderator can explain what isn't built yet\n\n<strong>Watch out for:</strong>\n- Hawthorne effect: participants behave differently when observed\n- Social desirability bias: participants may be kinder than their true opinion\n- Leading questions: 'Don't you think this button is easy to find?' biases the answer\n- Keep sessions under 60 minutes to avoid fatigue\n\nNielsen Norman Group recommends 5 users per round for qualitative tests. Test, fix, test again — iterative rounds of 5 beat one round of 20.",
+    cost: "Low-Medium. Participant compensation might be needed. Recruitment via your own network is free; third-party panels (User Interviews, Respondent) charge per recruit. Remote testing tools (Lookback, Zoom): free tiers available.",
+    costLevel: "Low",
+    practicalApplication: "Run 5 moderated sessions on your prototype before directing 'real traffic'. Record every session (with consent) so the team can watch highlights. The moderator's ability to ask 'why?' is irreplaceable — use moderated tests whenever you need to understand the reasoning behind user behavior, not just the behavior itself."
+  },
+  {
+    id: 45,
+    name: "Unmoderated User Test",
+    categories: ["Watch User with Artefact"],
+    phase: "Early Product",
+    evidenceStrength: 2,
+    evidenceDetail: "Evidence strength is moderate-low (2 out of 5). You see real behavior on a real artefact, but you can't probe or ask follow-up questions — you'll see <em>what</em> happened but often not <em>why</em>. When using third-party panel providers, data quality varies wildly: professional testers may give rehearsed 'website critiques' rather than authentic reactions, and some sessions are unusable pulp.",
+    descriptionShort: "Participants complete tasks on your prototype or product independently, without a moderator present. Faster and cheaper than moderated tests, but you sacrifice the ability to probe and risk receiving low-quality sessions.",
+    descriptionFull: "<strong>When to use unmoderated tests:</strong>\n- Evaluating specific UI elements, flows, or micro-interactions\n- Comparing two design variants (A vs B) at scale\n- Quick validation of minor design changes\n- When you need results fast and can't schedule 1:1 sessions\n- Quantitative benchmarking (task completion rate, time on task) across 20-50+ participants\n\n<strong>When NOT to use them:</strong>\n- Early-stage concept testing where context and explanation are needed\n- Complex flows that require participant guidance\n- When you need to understand deep emotional reactions or reasoning\n\n<strong>The data quality problem:</strong>\n- You can't tell if a session is useful until you watch it — expect to discard 10-30% of sessions\n- Third-party panel testers may rush through tasks or give generic feedback to collect compensation\n- Instructions must be crystal clear — participants can't ask for clarification\n- Think-aloud data is shallower: people feel unnatural talking to themselves\n\n<strong>Common tools:</strong>\nMaze, Lyssna (formerly UsabilityHub), UserTesting, Lookback, PlaybookUX. Most offer their own participant panels, or you can recruit your own users.\n\nTip: always pilot-test your task instructions with one person before launching to the full panel. Ambiguous instructions are the #1 cause of wasted sessions.",
+    cost: "Low. Platform costs: free tiers available (Maze, Lyssna). Third-party panel participants: €5-50 per tester depending on the platform and audience specificity.",
+    costLevel: "Low",
+    practicalApplication: "Use unmoderated tests for quick, focused validation of specific UI decisions — button placement, navigation clarity, checkout flow. Pair with moderated tests: run 5 moderated sessions first to understand the 'why,' then run 20-30 unmoderated sessions to quantify how widespread the issues are. Always over-recruit by 20-30% to compensate for unusable sessions."
   }
 ];
 
