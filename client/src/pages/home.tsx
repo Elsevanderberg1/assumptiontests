@@ -98,7 +98,7 @@ export default function Home() {
         !selectedCosts.includes(method.costLevel)
       )
         return false;
-      if (selectedEvidence.length > 0) {
+      if (selectedEvidence.length > 0 && method.evidenceStrength !== "n/a") {
         const evidenceNum =
           typeof method.evidenceStrength === "number"
             ? method.evidenceStrength

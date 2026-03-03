@@ -13,7 +13,8 @@ import {
 } from "@/lib/methods-data";
 import { BarChart3, DollarSign, Lightbulb } from "lucide-react";
 
-function EvidenceBar({ strength }: { strength: number }) {
+function EvidenceBar({ strength }: { strength: number | null }) {
+  if (strength === null) return null;
   return (
     <div className="flex items-center gap-1">
       {[1, 2, 3, 4, 5].map((level) => (
@@ -30,8 +31,9 @@ function EvidenceBar({ strength }: { strength: number }) {
   );
 }
 
-function parseEvidenceStrength(strength: number | string): number {
+function parseEvidenceStrength(strength: number | string): number | null {
   if (typeof strength === "number") return strength;
+  if (strength === "n/a") return null;
   const match = strength.match(/(\d+)/);
   if (match) return parseInt(match[1], 10);
   return 3;
