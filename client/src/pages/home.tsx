@@ -121,7 +121,7 @@ export default function Home() {
               Assumption Test Methods
             </h1>
             <p className="text-sm text-muted-foreground max-w-2xl">
-              A catalog of 42 research methods for business idea discovery &
+              A catalog of 43 research methods for business idea discovery &
               validation. Based on the work of Dr. Else van der Berg.
             </p>
           </div>
