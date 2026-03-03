@@ -4,6 +4,7 @@ import {
   ReactFlowProvider,
   type Node,
   type NodeTypes,
+  useReactFlow,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import {
@@ -29,9 +30,15 @@ const nodeTypes: NodeTypes = {
 const STAGGER_DELAY = 400;
 const TOTAL_NODES = initialNodes.length;
 
+const sortedNodes = [...initialNodes].sort(
+  (a, b) => (a.data as unknown as MindmapNodeData).seq - (b.data as unknown as MindmapNodeData).seq
+);
+
 function MindmapInner() {
   const [visibleCount, setVisibleCount] = useState(0);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
+  const [hasFitView, setHasFitView] = useState(false);
+  const { fitView } = useReactFlow();
 
   useEffect(() => {
     if (visibleCount >= TOTAL_NODES) return;
@@ -41,45 +48,46 @@ function MindmapInner() {
     return () => clearTimeout(timer);
   }, [visibleCount]);
 
+  useEffect(() => {
+    if (!hasFitView) {
+      const timer = setTimeout(() => {
+        fitView({ padding: 0.15, duration: 400 });
+        setHasFitView(true);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [hasFitView, fitView]);
+
   const allNodes = useMemo(() => {
-    const sorted = [...initialNodes].sort(
-      (a, b) => (a.data as unknown as MindmapNodeData).seq - (b.data as unknown as MindmapNodeData).seq
-    );
-    return sorted.map((node) => {
+    return sortedNodes.map((node) => {
       const nodeData = node.data as unknown as MindmapNodeData;
       const isVisible = nodeData.seq < visibleCount;
       return {
         ...node,
         style: {
           opacity: isVisible ? 1 : 0,
-          transform: isVisible ? "scale(1)" : "scale(0.8)",
-          transition: "opacity 0.4s ease, transform 0.4s ease",
+          transform: isVisible ? "scale(1)" : "scale(0.5)",
+          transition: "opacity 0.5s ease, transform 0.5s ease",
           pointerEvents: isVisible ? ("auto" as const) : ("none" as const),
         },
       };
     });
   }, [visibleCount]);
 
-  const visibleNodeIds = useMemo(
-    () => {
-      const sorted = [...initialNodes].sort(
-        (a, b) => (a.data as unknown as MindmapNodeData).seq - (b.data as unknown as MindmapNodeData).seq
-      );
-      return new Set(sorted.filter((_, i) => i < visibleCount).map((n) => n.id));
-    },
-    [visibleCount]
-  );
+  const visibleNodeIds = useMemo(() => {
+    return new Set(sortedNodes.filter((_, i) => i < visibleCount).map((n) => n.id));
+  }, [visibleCount]);
 
   const allEdges = useMemo(
     () =>
       initialEdges.map((e) => ({
         ...e,
-        animated: true,
+        animated: false,
         style: {
           stroke: "hsl(var(--muted-foreground))",
           strokeWidth: 1.5,
-          opacity: visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target) ? 1 : 0,
-          transition: "opacity 0.4s ease",
+          opacity: visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target) ? 0.6 : 0,
+          transition: "opacity 0.5s ease",
         },
       })),
     [visibleNodeIds]
@@ -95,22 +103,22 @@ function MindmapInner() {
     <div data-testid="theory-mindmap">
       <div
         className="w-full border rounded-lg bg-card/50 overflow-hidden"
-        style={{ height: 480 }}
+        style={{ height: 500 }}
       >
         <ReactFlow
           nodes={allNodes}
           edges={allEdges}
           nodeTypes={nodeTypes}
           onNodeClick={onNodeClick}
-          fitView
-          fitViewOptions={{ padding: 0.3 }}
+          defaultViewport={{ x: 0, y: 0, zoom: 0.65 }}
           nodesDraggable={false}
           nodesConnectable={false}
           elementsSelectable={false}
           zoomOnScroll={false}
           panOnScroll={false}
+          panOnDrag={true}
           preventScrolling={false}
-          minZoom={0.4}
+          minZoom={0.3}
           maxZoom={1.5}
           proOptions={{ hideAttribution: true }}
         />

@@ -16,7 +16,7 @@ export const mindmapNodes: Node<MindmapNodeData>[] = [
   {
     id: "0",
     type: "mindmapNode",
-    position: { x: 400, y: 0 },
+    position: { x: 420, y: 0 },
     data: {
       label: "Test assumptions, not ideas!",
       subtitle: "Testing full ideas makes it impossible to pinpoint why something failed. Testing single assumptions lets you run smaller, cheaper tests.",
@@ -27,7 +27,7 @@ export const mindmapNodes: Node<MindmapNodeData>[] = [
   {
     id: "1",
     type: "mindmapNode",
-    position: { x: 150, y: 180 },
+    position: { x: 200, y: 200 },
     data: {
       label: "Choosing the right test method(s)",
       subtitle: "for each assumption",
@@ -38,7 +38,7 @@ export const mindmapNodes: Node<MindmapNodeData>[] = [
   {
     id: "2",
     type: "mindmapNode",
-    position: { x: -50, y: 340 },
+    position: { x: 0, y: 400 },
     data: {
       label: "Categories",
       subtitle: "Desktop research; self-reportage; watch user in their environment; watch user with your artefact; real-world behaviour",
@@ -49,7 +49,7 @@ export const mindmapNodes: Node<MindmapNodeData>[] = [
   {
     id: "3",
     type: "mindmapNode",
-    position: { x: -50, y: 540 },
+    position: { x: 0, y: 620 },
     data: {
       label: "Soft vs. hard evidence",
       subtitle: "What people say vs. what people do",
@@ -60,7 +60,7 @@ export const mindmapNodes: Node<MindmapNodeData>[] = [
   {
     id: "4",
     type: "mindmapNode",
-    position: { x: 450, y: 380 },
+    position: { x: 500, y: 420 },
     data: {
       label: "Running multiple tests per assumption",
       subtitle: "To reduce false positives/negatives",
@@ -71,7 +71,7 @@ export const mindmapNodes: Node<MindmapNodeData>[] = [
   {
     id: "5",
     type: "mindmapNode",
-    position: { x: 700, y: 200 },
+    position: { x: 780, y: 220 },
     data: {
       label: "Selecting test participants",
       color: "blue",
@@ -81,7 +81,7 @@ export const mindmapNodes: Node<MindmapNodeData>[] = [
   {
     id: "6",
     type: "mindmapNode",
-    position: { x: 850, y: 350 },
+    position: { x: 900, y: 400 },
     data: {
       label: "ICP fit",
       subtitle: "Only care about participants who match your Ideal Customer Profile!",
