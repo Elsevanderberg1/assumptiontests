@@ -15,6 +15,7 @@ import {
   type CostLevel,
 } from "@/lib/methods-data";
 import { Search, X, SlidersHorizontal, ChevronDown, ChevronUp } from "lucide-react";
+import { TheorySection } from "@/components/theory-section";
 
 function slugify(str: string): string {
   return str
@@ -118,12 +119,16 @@ export default function Home() {
               className="text-2xl sm:text-3xl font-bold tracking-tight"
               data-testid="text-page-title"
             >
-              Assumption Test Methods
+              Assumption Test Toolbox
             </h1>
-            <p className="text-sm text-muted-foreground max-w-2xl">
-              A catalog of 45 research methods for business idea discovery &
-              validation. Based on the work of Dr. Else van der Berg.
+            <p className="text-base text-muted-foreground max-w-2xl" data-testid="text-subtitle">
+              There's more under the sun than interviews & A/B tests.
             </p>
+            <div className="text-sm text-muted-foreground max-w-2xl mt-2 space-y-1" data-testid="text-what-can-you-do">
+              <p data-testid="text-step-1">1. Read up on the theory</p>
+              <p data-testid="text-step-2">2. Browse, filter, or search 45 assumption test methods</p>
+              <p data-testid="text-step-3">3. Export each individual test method or the entire database to JSON to feed your personal AI agent</p>
+            </div>
           </div>
 
           <div className="flex flex-col gap-3">
@@ -285,6 +290,8 @@ export default function Home() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <TheorySection />
+
         <div className="flex items-center justify-between mb-6">
           <p
             className="text-sm text-muted-foreground"
