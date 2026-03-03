@@ -1,0 +1,81 @@
+Assumption Test Toolbox
+
+There’s more under the sun than interviews & A/B tests. 
+
+What can you do here?
+1. Read up on the theory
+2. Browse, filter or search assumption test methods. 
+3. Export each individual test method or the entire database to JSON to feed your personal AI agent.  
+Example: store this data in your local environment in a separate “test method theory” folder, so that your AI agent can see both the theory + your context (product context, ideas, riskiest assumptions, test results) to help you come up with a robust test strategy. 
+
+(SEARCH + FILTER BOX)
+
+THEORY
+Which test method to choose? Understanding the different categories
+Rule of thumb: layer methods. Each category has blind spots the others cover. (link:https://substack.com/home/post/p-167708854)
+NB. Several methods fall under multiple categories. For example, a "moderated user test" falls under 'self-reportage' and 'watch user with your artefact'.
+
+
+
+
+If you want to...
+Use
+Orient yourself before talking to anyone
+Desktop Research
+Understand motivations and the "why" behind behavior
+Self-Reportage
+See how users actually work today, unfiltered
+Watch in their environment
+De-risk a specific solution idea quickly
+Watch with your artifact
+Get hard evidence of what users actually do
+Real-world behavior
+
+Rule of thumb: layer methods. Each category has blind spots the others cover. (link: Lean Validation article)
+
+
+Soft evidence vs. hard evidence
+Test methods fall on a spectrum from soft to hard evidence.
+Soft evidence is what people say - think interviews, surveys, prototype tests. Sample sizes are small and behavior is hypothetical ("I would use this"). The big advantage: you get the why.
+Hard evidence is what people do under real-world conditions - think A/B tests, MVPs, fake door tests. Statistical significance is possible. The tradeoff: you see the behavior, not the reason behind it.
+You need both. Soft evidence tells you what to build and why; hard evidence tells you whether it's working
+
+
+Deep dive into the categories
+Desktop Research
+Lightweight, cheap, and the right place to start. Dig into existing studies, user reviews, competitor analysis, and search trends to orient yourself before talking to anyone. The limitation: research is often generalized - it's rarely specific enough to validate your exact niche or ICP.
+
+Self-Reportage (interviews, surveys, focus groups)
+Soft evidence. The best way to uncover motivations, goals, and the "why" behind user behavior. The catch: people don't always do what they say they will. Treat self-reported data as directional, not definitive - and layer with other methods to reduce the risk of false positives.
+
+Watch User in Their Environment (ethnography, contextual inquiry)
+Sits between soft and hard - you're observing real behavior, not asking people to predict it. But sample sizes are still small. You see what users actually do - the workarounds, the constraints, the habits they wouldn't think to mention in an interview. Complex to set up (especially in B2B), and observations require careful interpretation. Worth it when you suspect users have blind spots about their own behavior.
+
+Watch User With Your Artifact (prototype test, 1:1 landing page test, user test)
+Soft evidence. This is where vibe coding shines. Fast to set up, great for spotting resonance, delight, and usability issues before you build. The limitation: you're watching people react in your environment, not theirs - and it's hard to escape your own solution bias when you're the one running the test.
+
+Real-World Behavior (MVP, A/B test, fake door)
+Hard evidence. The only category that can give you statistical significance. You see what users actually do, not what they say they'll do. The catch: you won't know why. Always pair with qualitative methods - and test one assumption at a time, or you won't be able to isolate what failed.
+
+
+Test assumptions, not ideas
+
+Every product idea rests on a stack of assumptions - about the problem, the audience, the solution, and your ability to execute. When you test the whole idea at once (say, by launching an MVP), and it fails, you're left with a number and no explanation. Was the problem not real enough? Was the solution wrong? Did the wrong users show up? Testing individual assumptions lets you run smaller, cheaper tests and isolate exactly what's true or false. As a bonus: the same riskiest assumption often underpins multiple ideas - falsify it once, and you've eliminated several potential dead ends in a single move. Read more (hyperlink: 	•		•	https://substack.com/home/post/p-166719086 )
+
+
+Run multiple tests per assumption (test layering)
+
+A single test is rarely enough. Qualitative methods are rich in insight but carry a high risk of false positives or negatives - the sample sizes are small, and one enthusiastic interview participant can skew your read. The fix is layering: run multiple tests for the same assumption using different methods.
+A practical rule: always run soft (qualitative) tests before hard (quantitative) ones. A quick interview or prototype session can surface glaring issues - no one understood the headline, no one found the button - before you direct real traffic. Sending users into a broken experience doesn't just waste your budget; it makes your quantitative data meaningless.
+Once you've fixed the fundamentals, follow up with hard evidence to confirm the behavior holds at scale. 
+ (Read more: https://substack.com/home/post/p-167708854)
+
+Exclude people who don’t match your ICP
+Define your ICP/target audience first. If you aren’t strict about excluding test participants who don’t fit your ICP, you’ll likely collect more noise than signal.
+
+Resources
+David Bland, “Testing business ideas” (hyperlink: https://www.amazon.de/-/en/Testing-Business-Ideas-Experimentation-Strategyzer/dp/1119551447)
+Teresa Torres, “Continuous discovery habits” (hyperlink: https://www.amazon.de/Continuous-Discovery-Habits-Discover-Products/dp/1736633309?ie=UTF8&tag=googhydr08-21&hvadid=719378855680&hvpos=&hvexid=&hvnetw=g&hvrand=9295897857222060614&hvpone=&hvptwo=&hvqmt=&hvdev=c&ref=pd_sl_1igezu3og_e&tag=&ref=&adgrpid=172726841667&hvpone=&hvptwo=&hvadid=719378855680&hvpos=&hvnetw=g&hvrand=9295897857222060614&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9043054&hvtargid=dsa-1595363597442&hydadcr=&mcid=&gad_source=1
+
+
+Itamar Gilad, “Evidence-guided” (hyperlink: https://www.amazon.de/-/en/Evidence-Guided-Creating-Impact-Products-Uncertainty/dp/B0CJDFBN1X/ref=sr_1_1?crid=1DIYP0JVSP4BF&dib=eyJ2IjoiMSJ9.ggXr_QiKr54nvD0FHxxTMH8cQo41Slm24DH_U6hjVLRAevvbLZan1NZQllKW-Ng1sfz0UqjVUwojhHsqZn0aR5QYlyMaeESUHzixCWf8YeiVK8V764au57imLvS6T3MKFKgk3kJof8mMEGJ6IYZmbe_eyCxPaJAglt7QH45tX8Sg6Me6UwLEhpB_up1FeZgrI9ZERw1IbnRoP82ixEKysPSNkU6ybqJQ75gYW32akFs.PtguS-RYt4Q32R4PVm3yQUmP-AInfWyK-L69g1tDdlo&dib_tag=se&keywords=itamar+gilad+evidence+based&qid=1772532725&sprefix=itamar+gilad+evidence+bawe%2Caps%2C827&sr=8-1)
