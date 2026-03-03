@@ -126,9 +126,10 @@ export function MethodCard({ method }: { method: Method }) {
               Full description
             </AccordionTrigger>
             <AccordionContent>
-              <div className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-                {method.descriptionFull}
-              </div>
+              <div
+                className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line"
+                dangerouslySetInnerHTML={{ __html: method.descriptionFull }}
+              />
             </AccordionContent>
           </AccordionItem>
 
