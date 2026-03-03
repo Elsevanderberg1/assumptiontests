@@ -110,9 +110,10 @@ export function MethodCard({ method }: { method: Method }) {
               Evidence details
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {method.evidenceDetail}
-              </p>
+              <p
+                className="text-sm text-muted-foreground leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: method.evidenceDetail }}
+              />
             </AccordionContent>
           </AccordionItem>
 
