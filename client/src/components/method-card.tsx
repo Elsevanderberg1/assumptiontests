@@ -97,9 +97,10 @@ export function MethodCard({ method }: { method: Method }) {
           <span className="font-medium">{method.costLevel}</span>
         </div>
 
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          {method.descriptionShort}
-        </p>
+        <p
+          className="text-sm text-muted-foreground leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: method.descriptionShort }}
+        />
 
         <Accordion type="multiple" className="w-full -mx-0">
           <AccordionItem value="evidence" className="border-b-0">
