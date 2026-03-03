@@ -72,9 +72,6 @@ export function MethodCard({ method }: { method: Method }) {
           </span>
         </div>
         <div>
-          <span className="text-xs font-mono text-muted-foreground">
-            #{method.id}
-          </span>
           <h3
             className="text-base font-semibold leading-snug mt-0.5"
             data-testid={`text-name-${method.id}`}
