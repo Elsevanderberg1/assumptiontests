@@ -1,0 +1,31 @@
+Testing the landing page / marketing message
+I start my user lab sessions by showing participants the landing page to mimic a real-world entry point.
+
+How I run this test
+This involves two distinct phases:
+
+Headline clarity check (5 seconds) (borrowed from Systm): I share my screen, display the landing page, and after a brief five-second glance, switch to a blank tab. I then ask, 'What did you just see? What was the product about?' This quickly reveals if the headline effectively communicates the core offering. Expect a lot of “I wasn’t paying attention…”
+
+Self-directed exploration (approx. 15 min): After the headline test, participants receive the URL and share their screen. I instruct them to review the landing page as they typically would when considering new software, narrating their thoughts. This uncovers natural user behavior and provides opportunities for follow-up questions.
+
+What we validate:
+
+A landing page test helps confirm:
+
+The headline's effectiveness in grabbing attention and communicating clearly.
+
+The resonance of the value proposition and whether it speaks to the target audience.
+
+The alignment between user expectations (from the landing page) and the prototype experience. A significant gap here is a common cause of activation and retention issues.
+
+
+Interacting with the Prototype
+To be clear, in this section I’m talking about moderated prototype tests.
+
+Rather than assigning specific tasks, I usually let participants explore the prototype as they normally would. This often reveals more authentic usage patterns. As they screenshare, I ask them to narrate their thoughts aloud. I pay close attention to where they stumble, what excites them, and what leaves them cold. Key questions I ask during this phase include:
+
+Which features do you like, and which do you not?
+
+For the features they like, what problem or need does this solve for them?
+
+When was the last time they experienced that problem, and how often do they experience it? How big of a problem is it?

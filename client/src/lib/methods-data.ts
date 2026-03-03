@@ -1,16 +1,11 @@
 export type EvidenceStrength = 1 | 2 | 3 | 4 | 5;
 
 export type Category =
-  | "Public Data"
-  | "Self-Reporting"
-  | "Observation"
+  | "Desktop Research"
+  | "Self-Reportage"
+  | "Watch User in Environment"
   | "Watch User with Artefact"
-  | "Real-World Test"
-  | "Community & Network"
-  | "Expert Interview"
-  | "Team Feedback"
-  | "Customer Feedback"
-  | "Customer Behavior";
+  | "Real-World Behaviour";
 
 export type Phase =
   | "Understand Problem Space & Market"
@@ -23,7 +18,7 @@ export type CostLevel = "Free" | "Low" | "Medium" | "High" | "Variable";
 export interface Method {
   id: number;
   name: string;
-  category: Category;
+  categories: Category[];
   phase: Phase;
   evidenceStrength: EvidenceStrength | string;
   evidenceDetail: string;
@@ -38,7 +33,7 @@ export const methods: Method[] = [
   {
     id: 1,
     name: "Studies, Reports, Public Data",
-    category: "Public Data",
+    categories: ["Desktop Research"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 1,
     evidenceDetail: "Evidence strength is low (1 out of 5). Public research is about broad audiences and may not reflect your niche. Article headlines are often taken out of context, and even reputable sources can be biased. <a href='https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0005738' target='_blank' rel='noopener noreferrer' class='underline text-primary hover:text-primary/80'>34% of scientists admitted</a> to sometimes applying questionable research practices. Facts and figures relying on many assumptions are far easier to get wrong than right. When using LLMs for this research, keep in mind they are trained on publicly available sources and may confidently present outdated or fabricated citations. Always verify the original source.",
@@ -51,7 +46,7 @@ export const methods: Method[] = [
   {
     id: 2,
     name: "User Reviews & Discussions",
-    category: "Public Data",
+    categories: ["Desktop Research"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5). While you can learn a lot about unmet customer needs, the information is anecdotal and should be treated as a starting point for more experimentation. Just because the same criticism is repeated on a forum doesn't mean your assumption is validated. Most online forums don't allow you to identify the poster, so it's impossible to figure out whether they belong to your ICP. AI-powered sentiment analysis can help identify patterns at scale, but beware of over-interpreting noisy data.",
@@ -64,7 +59,7 @@ export const methods: Method[] = [
   {
     id: 3,
     name: "Search Trend Analysis",
-    category: "Public Data",
+    categories: ["Desktop Research"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). Search volume data gives you insights into whether your target audience is already aware of the problem or looking for a specific solution. However, you won't be able to get results that are particularly indicative of your niche target audience. Note: as more people use AI chatbots for search, traditional search volume data may underrepresent actual interest in a topic.",
@@ -77,7 +72,7 @@ export const methods: Method[] = [
   {
     id: 4,
     name: "Competitor Research & Mystery Shopping",
-    category: "Public Data",
+    categories: ["Desktop Research"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5). Competitor research can help prove that a certain pain point is not solved by anyone else, but competitors will continue to adapt their strategies. Never treat competitive intelligence as a static asset; it requires continuous updating. AI can speed up the research but the insights are only as current as the data available.",
@@ -90,7 +85,7 @@ export const methods: Method[] = [
   {
     id: 5,
     name: "Review FAQ Pages of Competitors",
-    category: "Public Data",
+    categories: ["Desktop Research"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5). FAQ pages reveal customer objections in disguise, but the information is indirect and requires interpretation. AI can help you analyze FAQ pages at scale and translate them into actionable objection-handling insights.",
@@ -103,7 +98,7 @@ export const methods: Method[] = [
   {
     id: 6,
     name: "Leverage / Create Communities",
-    category: "Community & Network",
+    categories: ["Self-Reportage"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 1,
     evidenceDetail: "Evidence strength is low (1 out of 5). Communities are a starting point for engagement and word of mouth, but community interactions alone don't validate your assumptions. They represent an opportunity to access tightly-knit groups for further research.",
@@ -116,7 +111,7 @@ export const methods: Method[] = [
   {
     id: 7,
     name: "Qualitative Interviews with Experts (1:1)",
-    category: "Expert Interview",
+    categories: ["Self-Reportage"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). Expert interviews partially circumvent the self-reporting problem because experts have real-world experience with how customers actually behave. You need to factor in differences between your target audience and the expert's experience base. While AI can help you prepare for and analyze interviews, it cannot replace the depth of insight from a real expert conversation.",
@@ -129,7 +124,7 @@ export const methods: Method[] = [
   {
     id: 8,
     name: "Qualitative Customer Interviews (1:1)",
-    category: "Self-Reporting",
+    categories: ["Self-Reportage"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 1,
     evidenceDetail: "Evidence strength is low (1 out of 5). As David Ogilvy said: 'People don't think what they feel, don't say what they think, and they don't do what they say.' Story-based interviews tries to reduce answers from the 'perfect self' perspective by asking about concrete stories. Nonetheless, self-reportage remains flawed, no statistical significance, people report what's on top of mind for them (no latent needs). AI can help you <a href='https://elsevanderberg.substack.com/p/claude-code-for-interview-synthesis' target='_blank' rel='noopener noreferrer' class='underline text-primary hover:text-primary/80'>analyze interviews at scale</a> but cannot fix the underlying self-reporting bias. Customer interviews are valuable but findings need to be backed up by real-world tests.",
@@ -142,7 +137,7 @@ export const methods: Method[] = [
   {
     id: 41,
     name: "ODI – Job Mapping & Desired Outcome Interviews",
-    category: "Self-Reporting",
+    categories: ["Self-Reportage"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). ODI interviews produce structured, solution-free outcome statements rather than feature requests or pain narratives. More actionable than standard discovery interviews, but the qualitative phase alone doesn't tell you which outcomes are unmet — that requires the quantitative ODI survey.",
@@ -155,7 +150,7 @@ export const methods: Method[] = [
   {
     id: 42,
     name: "ODI – Quantitative Survey",
-    category: "Customer Feedback",
+    categories: ["Self-Reportage"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 5,
     evidenceDetail: "Evidence strength is very high (5 out of 5). Unlike standard surveys, ODI surveys measure importance and satisfaction for each desired outcome, producing an opportunity score that predicts where innovation will succeed. Strategyn reports an 86% success rate for products developed using this data — 5x the industry average.",
@@ -168,7 +163,7 @@ export const methods: Method[] = [
   {
     id: 9,
     name: "Ethnography",
-    category: "Observation",
+    categories: ["Watch User in Environment"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5). Observing real behavior provides stronger evidence than self-reporting — we see what people actually do, rather than what they say they do, and we'll catch things that aren't top of mind (hidden needs, hard-facts-of-life). But small sample sizes limit generalizability. Despite being <a href='https://elsevanderberg.substack.com/p/ethnography-finds-what-interviews' target='_blank' rel='noopener noreferrer' class='underline text-primary hover:text-primary/80'>rated the most useful research method</a>, only 15% of organizations use ethnography.",
@@ -181,7 +176,7 @@ export const methods: Method[] = [
   {
     id: 10,
     name: "Card Sorting (Group)",
-    category: "Self-Reporting",
+    categories: ["Self-Reportage"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 1,
     evidenceDetail: "Evidence strength is low (1 out of 5). Card sorting relies on self-reported priorities, which may not reflect actual behavior. However, it's useful for understanding how customers conceptualize and prioritize their pains, gains, and jobs. AI can help synthesize results from multiple sessions.",
@@ -194,7 +189,7 @@ export const methods: Method[] = [
   {
     id: 11,
     name: "Buy a Feature (Group)",
-    category: "Self-Reporting",
+    categories: ["Self-Reportage"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5). The play money mechanism adds forced prioritization that makes results more meaningful than simple ranking, but it's still self-reported and may not reflect actual purchase behavior.",
@@ -207,7 +202,7 @@ export const methods: Method[] = [
   {
     id: 12,
     name: "Discovery Survey",
-    category: "Self-Reporting",
+    categories: ["Self-Reportage"],
     phase: "Understand Problem Space & Market",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5). Surveys are great for uncovering customer jobs, pains, and gains at scale, but suffer from the inherent problem of poor self-reporting. AI can help craft better questions using customer language and analyze open-ended responses at scale.",
@@ -220,7 +215,7 @@ export const methods: Method[] = [
   {
     id: 13,
     name: "Storyboard",
-    category: "Self-Reporting",
+    categories: ["Self-Reportage", "Watch User with Artefact"],
     phase: "Test Value Proposition",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5, self-reporting). Storyboards help explore which value propositions resonate, but rely on customer self-reporting about hypothetical scenarios. AI image generation has made storyboard creation dramatically faster and cheaper.",
@@ -233,7 +228,7 @@ export const methods: Method[] = [
   {
     id: 14,
     name: "Offline Pitching",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: 1,
     evidenceDetail: "Evidence strength is low (1 out of 5). You're far from an actual purchase, so gauging reactions is imprecise. Upside: you might walk away with real prospects. Works better for services than software products that aren't ready yet.",
@@ -246,7 +241,7 @@ export const methods: Method[] = [
   {
     id: 15,
     name: "Cold Outreach (Email, Calling)",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: "2-5",
     evidenceDetail: "Evidence strength varies by outcome: Cold lead to warm/demo = 2, Cold lead to LOI/waitlist = 3, Cold lead to purchase = 5. AI has transformed cold outreach: hyper-personalization at scale is now possible, but so is inbox fatigue from AI-generated spam. Quality over quantity matters more than ever.",
@@ -259,7 +254,7 @@ export const methods: Method[] = [
   {
     id: 16,
     name: "Online/Social Media Post or Paid Ad",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: "2-5",
     evidenceDetail: "Evidence strength depends on CTA: Views/shares/likes/comments = 2, Clicks = 3, Sign ups = 4, Orders = 5. Don't get bogged down by vanity metrics. Figure out what's truly relevant for your business model.",
@@ -272,7 +267,7 @@ export const methods: Method[] = [
   {
     id: 17,
     name: "Landing Page",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5) for basic tracking. However, it depends heavily on your CTA. If measuring actual sales-conversion rates, evidence is very strong (5). Tracking only leads (demos, contact forms) tells you little about actual closing rate.",
@@ -285,7 +280,7 @@ export const methods: Method[] = [
   {
     id: 18,
     name: "A/B Testing Campaigns & Landing Pages",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). A/B tests provide statistically comparable results between variants. AI makes it vastly easier to generate and deploy variants, enabling faster experimentation cycles. Make sure not to change too many things per variant.",
@@ -298,7 +293,7 @@ export const methods: Method[] = [
   {
     id: 19,
     name: "Web Traffic Analysis",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5). Web traffic analysis shows aggregate user behavior but doesn't tell you about individual motivations. AI analytics tools can now surface insights automatically that previously required a data analyst. Cookie consent and ad blockers limit tracking coverage.",
@@ -311,7 +306,7 @@ export const methods: Method[] = [
   {
     id: 20,
     name: "Crowdfunding",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). Crowdfunding gives strong evidence that people believe in your idea and want it to exist, but it doesn't necessarily tell you whether there will be buyers at market price.",
@@ -324,7 +319,7 @@ export const methods: Method[] = [
   {
     id: 21,
     name: "Video",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5). Videos work at scale and demonstrate your product visually, but engagement metrics are relatively weak signals of actual purchase intent. AI has made video production dramatically cheaper and faster.",
@@ -337,7 +332,7 @@ export const methods: Method[] = [
   {
     id: 22,
     name: "Resource Download",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: 1,
     evidenceDetail: "Evidence strength is low (1 out of 5). You're far from an actual purchase. If leads provide their email, evidence is slightly higher. AI has made content creation easier, but it's also made it harder to stand out because everyone can produce content now. Quality and originality matter more than ever.",
@@ -350,7 +345,7 @@ export const methods: Method[] = [
   {
     id: 23,
     name: "Email Series / Newsletter",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5). Email engagement metrics show interest but are relatively weak signals of purchase intent. AI has made newsletters easier to create but also increased competition. Authentic voice and original insights are key differentiators.",
@@ -363,7 +358,7 @@ export const methods: Method[] = [
   {
     id: 24,
     name: "Letter of Intent (LOI)",
-    category: "Self-Reporting",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is low (2 out of 5). LOIs are non-binding documents. It's not uncommon for potential partners or clients to back away from promises made. In the current market, investors prefer to see binding purchases.",
@@ -376,7 +371,7 @@ export const methods: Method[] = [
   {
     id: 25,
     name: "Presale or Waitlist (Fake Door)",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: "4-5",
     evidenceDetail: "Evidence strength is high. Waitlist sign-up = 3, Presale without payment = 4, Presale with payment = 5. Tread lightly: it's easy to disappoint prospects if they expected a ready product. Be transparent.",
@@ -389,7 +384,7 @@ export const methods: Method[] = [
   {
     id: 26,
     name: "Redirect to Third-Party Seller",
-    category: "Real-World Test",
+    categories: ["Real-World Behaviour"],
     phase: "Test Value Proposition",
     evidenceStrength: 4,
     evidenceDetail: "Evidence strength is high (4 out of 5). This method measures actual purchase conversion without building anything. The downside is losing the sale to a competitor, but you gain very strong test results about purchase intent.",
@@ -402,7 +397,7 @@ export const methods: Method[] = [
   {
     id: 27,
     name: "Prototype (Low to High Fidelity)",
-    category: "Watch User with Artefact",
+    categories: ["Watch User with Artefact"],
     phase: "Early Product",
     evidenceStrength: "2-4",
     evidenceDetail: "Evidence strength varies by fidelity: Clickable prototype = 2, Coded prototype = 4. AI has dramatically compressed the time from idea to coded prototype. What used to take weeks now takes hours to days. This makes higher-fidelity testing accessible earlier in the process.",
@@ -415,7 +410,7 @@ export const methods: Method[] = [
   {
     id: 28,
     name: "MVP (Minimum Viable Product)",
-    category: "Watch User with Artefact",
+    categories: ["Real-World Behaviour"],
     phase: "Early Product",
     evidenceStrength: "3-5",
     evidenceDetail: "Evidence strength varies: Single feature MVP = 3, End-to-end customer journey MVP = 5. AI has redefined 'minimum viable': what used to take months to build can now be vibe-coded in days. This means the bar for 'minimum' has dropped, while 'viable' can be achieved faster.",
@@ -428,7 +423,7 @@ export const methods: Method[] = [
   {
     id: 29,
     name: "Co-creation",
-    category: "Watch User with Artefact",
+    categories: ["Self-Reportage", "Watch User with Artefact"],
     phase: "Early Product",
     evidenceStrength: 5,
     evidenceDetail: "Evidence strength is very high (5 out of 5). Co-creation combines customer feedback with real-world user behavior on an actual product. AI makes it faster to iterate on feedback, shrinking the co-creation cycle from months to weeks.",
@@ -441,7 +436,7 @@ export const methods: Method[] = [
   {
     id: 30,
     name: "Concierge",
-    category: "Watch User with Artefact",
+    categories: ["Real-World Behaviour"],
     phase: "Early Product",
     evidenceStrength: 4,
     evidenceDetail: "Evidence strength is high (4 out of 5). You can handle the entire flow from start to value proof. Customer satisfaction feedback is provided after delivering on your value proposition. AI can now automate portions of the concierge process that were previously fully manual.",
@@ -454,7 +449,7 @@ export const methods: Method[] = [
   {
     id: 31,
     name: "Wizard of Oz",
-    category: "Watch User with Artefact",
+    categories: ["Real-World Behaviour"],
     phase: "Early Product",
     evidenceStrength: 5,
     evidenceDetail: "Evidence strength is very high (5 out of 5). The customer believes they're using an automated product, giving you the most realistic feedback possible. AI has blurred the line between Wizard of Oz and real product: AI can handle much of what used to require human 'wizards.'",
@@ -467,7 +462,7 @@ export const methods: Method[] = [
   {
     id: 32,
     name: "Customer Service/Success Feedback",
-    category: "Team Feedback",
+    categories: ["Self-Reportage"],
     phase: "Mature Product",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). CS teams have real-world information and can back up claims with data. However, customers inherently share more negative feedback, skewing results. AI can now analyze CS conversations at scale to surface patterns.",
@@ -480,7 +475,7 @@ export const methods: Method[] = [
   {
     id: 33,
     name: "Sales Force Feedback",
-    category: "Team Feedback",
+    categories: ["Self-Reportage"],
     phase: "Mature Product",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). Sales teams have real-world information and can back up claims with data. AI conversation intelligence tools can now capture and analyze sales calls automatically.",
@@ -493,7 +488,7 @@ export const methods: Method[] = [
   {
     id: 34,
     name: "Customer Advisory Board",
-    category: "Customer Feedback",
+    categories: ["Self-Reportage"],
     phase: "Mature Product",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). Decreased by reliance on self-reporting and small group size. Increased by the fact that feedback is given on a concrete, existing product. AI can help analyze and act on advisory board feedback faster.",
@@ -506,7 +501,7 @@ export const methods: Method[] = [
   {
     id: 35,
     name: "PMF Audit (Sean Ellis Test)",
-    category: "Customer Feedback",
+    categories: ["Self-Reportage"],
     phase: "Mature Product",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). The Sean Ellis test provides a specific, actionable benchmark (40% 'very disappointed' = PMF). Results can be reliable with as few as 40 respondents. AI can help with segmentation and analysis of results.",
@@ -519,7 +514,7 @@ export const methods: Method[] = [
   {
     id: 36,
     name: "Surveys (In-App & Email)",
-    category: "Customer Feedback",
+    categories: ["Self-Reportage"],
     phase: "Mature Product",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). Stronger than pre-launch surveys because you're addressing real customers about a concrete product. AI makes open-ended question analysis practical at scale.",
@@ -532,7 +527,7 @@ export const methods: Method[] = [
   {
     id: 37,
     name: "Scrape Review Sites / App Store Reviews",
-    category: "Customer Feedback",
+    categories: ["Desktop Research"],
     phase: "Mature Product",
     evidenceStrength: 2,
     evidenceDetail: "Evidence strength is moderate-low (2 out of 5). Reviews provide real customer opinions but tend to be polarized. AI makes large-scale review analysis practical and can surface nuanced patterns that manual reading would miss.",
@@ -545,7 +540,7 @@ export const methods: Method[] = [
   {
     id: 38,
     name: "Data Analytics",
-    category: "Customer Behavior",
+    categories: ["Real-World Behaviour"],
     phase: "Mature Product",
     evidenceStrength: 5,
     evidenceDetail: "Evidence strength is very high (5 out of 5) because it shows how users actually behave. AI analytics tools can now surface insights automatically that previously required a dedicated data analyst. Data shows 'how,' not 'why' - combine with other methods.",
@@ -558,7 +553,7 @@ export const methods: Method[] = [
   {
     id: 39,
     name: "Feature Stub",
-    category: "Customer Behavior",
+    categories: ["Real-World Behaviour"],
     phase: "Mature Product",
     evidenceStrength: 3,
     evidenceDetail: "Evidence strength is moderate (3 out of 5). You can see whether people show interest by clicking within your app, but can't measure whether they'll actually use the full feature. AI makes implementing feature stubs faster than ever.",
@@ -571,7 +566,7 @@ export const methods: Method[] = [
   {
     id: 40,
     name: "A/B Testing Product Versions/Features",
-    category: "Customer Behavior",
+    categories: ["Real-World Behaviour"],
     phase: "Mature Product",
     evidenceStrength: 4,
     evidenceDetail: "Evidence strength is high (4 out of 5). A/B tests are statistically reliable for evaluating product variations. AI can now generate variants, run experiments, and analyze results faster than ever. Roll out to a subset first to reduce risk.",
@@ -584,16 +579,11 @@ export const methods: Method[] = [
 ];
 
 export const categories: Category[] = [
-  "Public Data",
-  "Self-Reporting",
-  "Observation",
+  "Desktop Research",
+  "Self-Reportage",
+  "Watch User in Environment",
   "Watch User with Artefact",
-  "Real-World Test",
-  "Community & Network",
-  "Expert Interview",
-  "Team Feedback",
-  "Customer Feedback",
-  "Customer Behavior"
+  "Real-World Behaviour"
 ];
 
 export const phases: Phase[] = [
@@ -607,16 +597,11 @@ export const costLevels: CostLevel[] = ["Free", "Low", "Medium", "High", "Variab
 
 export function getCategoryColor(category: Category): string {
   const colors: Record<Category, string> = {
-    "Public Data": "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
-    "Self-Reporting": "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
-    "Observation": "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300",
+    "Desktop Research": "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
+    "Self-Reportage": "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
+    "Watch User in Environment": "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300",
     "Watch User with Artefact": "bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-300",
-    "Real-World Test": "bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300",
-    "Community & Network": "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
-    "Expert Interview": "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300",
-    "Team Feedback": "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300",
-    "Customer Feedback": "bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300",
-    "Customer Behavior": "bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300"
+    "Real-World Behaviour": "bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300"
   };
   return colors[category];
 }

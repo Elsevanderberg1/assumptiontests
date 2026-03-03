@@ -51,12 +51,17 @@ export function MethodCard({ method }: { method: Method }) {
     >
       <CardHeader className="pb-3 space-y-3">
         <div className="flex items-start justify-between gap-2 flex-wrap">
-          <span
-            className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium ${getCategoryColor(method.category)}`}
-            data-testid={`badge-category-${method.id}`}
-          >
-            {method.category}
-          </span>
+          <div className="flex flex-wrap gap-1">
+            {method.categories.map((cat) => (
+              <span
+                key={cat}
+                className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium ${getCategoryColor(cat)}`}
+                data-testid={`badge-category-${method.id}`}
+              >
+                {cat}
+              </span>
+            ))}
+          </div>
           <span
             className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium ${getPhaseColor(method.phase)}`}
             data-testid={`badge-phase-${method.id}`}

@@ -71,7 +71,7 @@ export default function Home() {
         const q = searchQuery.toLowerCase();
         const searchableText = [
           method.name,
-          method.category,
+          ...method.categories,
           method.phase,
           method.descriptionShort,
           method.descriptionFull,
@@ -85,7 +85,7 @@ export default function Home() {
       }
       if (
         selectedCategories.length > 0 &&
-        !selectedCategories.includes(method.category)
+        !method.categories.some((cat) => selectedCategories.includes(cat))
       )
         return false;
       if (
@@ -330,8 +330,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs text-muted-foreground text-center">
             Based on "Business Idea Discovery & Validation" by Dr. Else van der
-            Berg (Value Rebels). Categories inspired by qualitative research
-            methodology.
+            Berg (Value Rebels).
           </p>
         </div>
       </footer>
