@@ -554,6 +554,32 @@ export const methods: Method[] = [
     cost: "Many tools have free tiers: Statsig, GrowthBook (open source). Enterprise tools: $100-1000/mo. AI coding tools make variant creation nearly free.",
     costLevel: "Variable",
     practicalApplication: "Use AI experimentation platforms to run more experiments faster. Multi-armed bandit algorithms automatically optimize traffic allocation, meaning you get answers sooner with less risk. The combination of AI variant creation + automated experimentation = continuous optimization."
+  },
+  {
+    id: 41,
+    name: "ODI – Job Mapping & Desired Outcome Interviews",
+    category: "Self-Reporting",
+    phase: "Understand Problem Space & Market",
+    evidenceStrength: 3,
+    evidenceDetail: "Evidence strength is moderate (3 out of 5). ODI interviews produce structured, solution-free outcome statements rather than feature requests or pain narratives. More actionable than standard discovery interviews, but the qualitative phase alone doesn't tell you which outcomes are unmet — that requires the quantitative ODI survey.",
+    descriptionShort: "Map the customer's job-to-be-done into process steps and interview job executors to uncover desired outcomes — measurable, solution-free metrics of success. Part of <a href='https://innovationroundtable.com/summit/wp-content/uploads/2014/05/Strategyn_what_is_Outcome_Driven_Innovation.pdf' target='_blank' rel='noopener noreferrer' class='underline text-primary hover:text-primary/80'>Outcome-Driven Innovation (ODI)</a> by Strategyn.",
+    descriptionFull: "ODI interviews are fundamentally different from discovery interviews. Instead of exploring pains and wishes, you capture how customers measure success.\n\n<strong>Step 1: Build the job map</strong>\nBreak down the customer's job-to-be-done into process steps: define, locate, prepare, confirm, execute, monitor, modify, conclude. This map becomes your interview guide.\n\n<strong>Step 2: Uncover desired outcomes</strong>\nFor each job step, ask what needs to be measured and controlled for success. Capture outcomes in a specific format:\n\n<em>Direction of improvement + metric + object of control + context</em>\nExample: 'Minimize the time it takes to find songs that match the current mood.'\n\n<strong>How this differs from discovery interviews:</strong>\n- You capture metrics of success, not stories or feature requests\n- Outcomes are solution-free and stable over time\n- A typical job yields 100+ desired outcomes\n- The job map ensures comprehensive coverage — no blind spots\n\nThe output — a complete set of desired outcomes — becomes both the input for the quantitative ODI survey and a long-term strategic asset.",
+    cost: "Medium. Requires trained interviewers and 10-30 interviews depending on job complexity. Often conducted as a professional Strategyn engagement.",
+    costLevel: "Medium",
+    practicalApplication: "Use ODI job mapping when you need comprehensive, structured insight into what customers are trying to achieve — not what they say they want. The output feeds directly into the quantitative ODI survey for statistical prioritization."
+  },
+  {
+    id: 42,
+    name: "ODI – Quantitative Survey",
+    category: "Customer Feedback",
+    phase: "Understand Problem Space & Market",
+    evidenceStrength: 5,
+    evidenceDetail: "Evidence strength is very high (5 out of 5). Unlike standard surveys, ODI surveys measure importance and satisfaction for each desired outcome, producing an opportunity score that predicts where innovation will succeed. Strategyn reports an 86% success rate for products developed using this data — 5x the industry average.",
+    descriptionShort: "Survey job executors to quantify which desired outcomes are underserved, discover hidden segments, and predict which product concepts will win. Part of <a href='https://innovationroundtable.com/summit/wp-content/uploads/2014/05/Strategyn_what_is_Outcome_Driven_Innovation.pdf' target='_blank' rel='noopener noreferrer' class='underline text-primary hover:text-primary/80'>Outcome-Driven Innovation (ODI)</a> by Strategyn.",
+    descriptionFull: "Takes the desired outcomes from the qualitative ODI interviews and quantifies them across a statistically valid sample.\n\n<strong>What respondents rate (for each outcome):</strong>\n- Importance (1-5): how important is this outcome?\n- Satisfaction (1-5): how well is it currently satisfied?\n\n<strong>The Opportunity Score:</strong>\nImportance + max(Importance – Satisfaction, 0)\n- Above 10 = underserved → innovation opportunity\n- Below 6 = overserved → disruption/cost-reduction opportunity\n\n<strong>The real power: outcome-based segmentation</strong>\nUsing factor and cluster analysis on the survey data, you discover hidden segments of customers with unique sets of unmet needs. These segments can't be found through demographics or personas — they're defined by which outcomes are unmet.\n\nThis is what makes ODI predictable: you know exactly which outcomes to target, for whom, and how large the opportunity is.\n\n<strong>Sample size:</strong>\nMinimum 180 respondents for segmentation. Typically 180-600+.",
+    cost: "High. Requires a statistically valid sample (180-600+ respondents), professional survey design, and factor/cluster analysis. Typically part of a Strategyn engagement or executed by ODI-trained teams.",
+    costLevel: "High",
+    practicalApplication: "Use the ODI survey when you need statistically validated prioritization of customer needs. Opportunity scores tell you exactly where to focus, and outcome-based segmentation reveals customer groups that demographics miss."
   }
 ];
 
