@@ -413,9 +413,9 @@ export const methods: Method[] = [
     categories: ["Watch User with Artefact"],
     phase: "Early Product",
     evidenceStrength: "n/a",
-    evidenceDetail: "A prototype is an artefact, not a test. Evidence strength depends on how you test it: moderated user tests (#44) provide deep qualitative insight, unmoderated user tests (#45) provide faster but shallower validation.",
+    evidenceDetail: "A prototype is an artefact, not a test. Evidence strength depends on how you test it: moderated user tests provide deep qualitative insight, unmoderated user tests provide faster but shallower validation.",
     descriptionShort: "Create a prototype ranging from AI-generated designs to fully coded interactive experiences. AI has collapsed the prototype-to-product timeline from weeks to hours.",
-    descriptionFull: "Prototypes range from low to high fidelity.\n\nGetting started:\n- Determine goals & target audience\n- Create a prototype at the appropriate fidelity level for your stage\n- Iterate based on feedback\n\nOnce built, test your prototype with target users using moderated user tests (#44) for deep qualitative insight, or unmoderated user tests (#45) for faster, broader validation.",
+    descriptionFull: "Prototypes range from low to high fidelity.\n\nGetting started:\n- Determine goals & target audience\n- Create a prototype at the appropriate fidelity level for your stage\n- Iterate based on feedback\n\nOnce built, test your prototype with target users using moderated user tests for deep qualitative insight, or unmoderated user tests for faster, broader validation.",
     cost: "Dramatically reduced by AI. v0/Bolt: free to $20/mo. Replit: free to $25/mo. Figma: free tier. What used to cost thousands in designer + developer time now costs hours of your own time.",
     costLevel: "Low",
     practicalApplication: "Use AI to build a coded, interactive prototype in a day. Spend your time testing with users, not building. The speed of AI means you can test 3-4 prototype variants in the time it used to take to build one."
