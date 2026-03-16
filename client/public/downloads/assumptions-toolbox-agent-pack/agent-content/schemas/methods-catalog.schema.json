@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://assumption-toolbox.local/schemas/methods-catalog.schema.json",
+  "title": "Methods Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "lastUpdated", "methods"],
+  "properties": {
+    "version": { "type": "string" },
+    "lastUpdated": { "type": "string", "format": "date" },
+    "methods": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "categories",
+          "phase",
+          "evidenceStrength",
+          "costLevel"
+        ],
+        "properties": {
+          "id": { "type": "integer", "minimum": 1 },
+          "name": { "type": "string" },
+          "categories": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "enum": [
+                "Desktop Research",
+                "Self-Reportage",
+                "Watch User in Environment",
+                "Watch User with Artefact",
+                "Real-World Behaviour"
+              ]
+            }
+          },
+          "phase": {
+            "type": "string",
+            "enum": [
+              "Understand Problem Space & Market",
+              "Test Value Proposition",
+              "Early Product",
+              "Mature Product"
+            ]
+          },
+          "evidenceStrength": {
+            "oneOf": [
+              { "type": "integer", "minimum": 1, "maximum": 5 },
+              { "type": "string" }
+            ]
+          },
+          "evidenceDetail": { "type": "string" },
+          "descriptionShort": { "type": "string" },
+          "descriptionFull": { "type": "string" },
+          "cost": { "type": "string" },
+          "costLevel": {
+            "type": "string",
+            "enum": ["Free", "Low", "Medium", "High", "Variable"]
+          },
+          "practicalApplication": { "type": "string" },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "supportsHypothesisTypes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["desirability", "feasibility", "viability", "usability", "ethics"]
+            }
+          },
+          "requiresProductArtifact": { "type": "boolean" },
+          "isPrimarilyQualitative": { "type": "boolean" },
+          "isPrimarilyQuantitative": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://assumption-toolbox.local/schemas/assumption-testing-theory.schema.json",
+  "title": "Assumption Testing Theory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "lastUpdated", "sections"],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date"
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "summary",
+          "coreConcepts",
+          "pitfalls",
+          "selectionGuidance"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "coreConcepts": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "pitfalls": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "selectionGuidance": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["label", "url"],
+              "properties": {
+                "label": { "type": "string" },
+                "url": { "type": "string", "format": "uri" }
+              }
+            }
+          },
+          "relatedMethodIds": {
+            "type": "array",
+            "items": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    }
+  }
+}

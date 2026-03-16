@@ -1,0 +1,30 @@
+{
+  "packVersion": "1.0.0",
+  "name": "assumption-testing-agent-pack",
+  "description": "Machine-readable schemas and rules for assumption-test strategy generation.",
+  "language": "en",
+  "taxonomyVersion": "2026-03-15",
+  "entryPoints": {
+    "theorySchema": "schemas/assumption-testing-theory.schema.json",
+    "methodsSchema": "schemas/methods-catalog.schema.json",
+    "rulesSchema": "schemas/strategy-rules.schema.json",
+    "strategyRequestSchema": "schemas/test-strategy-request.schema.json",
+    "strategyResponseSchema": "schemas/test-strategy-response.schema.json",
+    "theoryData": "assumption-testing-theory.json",
+    "methodsData": "methods-catalog.json",
+    "rulesData": "strategy-rules.json"
+  },
+  "categoryCanonicalValues": [
+    "Desktop Research",
+    "Self-Reportage",
+    "Watch User in Environment",
+    "Watch User with Artefact",
+    "Real-World Behaviour"
+  ],
+  "phaseCanonicalValues": [
+    "Understand Problem Space & Market",
+    "Test Value Proposition",
+    "Early Product",
+    "Mature Product"
+  ]
+}

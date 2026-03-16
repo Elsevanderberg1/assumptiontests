@@ -1,0 +1,366 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-03-15",
+  "methods": [
+    {
+      "id": 1,
+      "name": "Studies, Reports, Public Data",
+      "categories": ["Desktop Research"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 1,
+      "costLevel": "Variable"
+    },
+    {
+      "id": 2,
+      "name": "User Reviews & Discussions",
+      "categories": ["Desktop Research"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 3,
+      "name": "Search Trend Analysis",
+      "categories": ["Desktop Research"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 3,
+      "costLevel": "Free"
+    },
+    {
+      "id": 4,
+      "name": "Competitor Research & Mystery Shopping",
+      "categories": ["Desktop Research"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 5,
+      "name": "Review FAQ Pages of Competitors",
+      "categories": ["Desktop Research"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 2,
+      "costLevel": "Free"
+    },
+    {
+      "id": 6,
+      "name": "Leverage / Create Communities",
+      "categories": ["Self-Reportage"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 1,
+      "costLevel": "Variable"
+    },
+    {
+      "id": 7,
+      "name": "Qualitative Interviews with Experts (1:1)",
+      "categories": ["Self-Reportage"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 3,
+      "costLevel": "Medium"
+    },
+    {
+      "id": 8,
+      "name": "Qualitative Customer Interviews (1:1)",
+      "categories": ["Self-Reportage"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 1,
+      "costLevel": "Low"
+    },
+    {
+      "id": 41,
+      "name": "ODI – Job Mapping & Desired Outcome Interviews",
+      "categories": ["Self-Reportage"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 3,
+      "costLevel": "Medium"
+    },
+    {
+      "id": 42,
+      "name": "ODI – Quantitative Survey",
+      "categories": ["Self-Reportage"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 5,
+      "costLevel": "High"
+    },
+    {
+      "id": 9,
+      "name": "Ethnography",
+      "categories": ["Watch User in Environment"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 10,
+      "name": "Card Sorting (Group)",
+      "categories": ["Self-Reportage"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 1,
+      "costLevel": "Low"
+    },
+    {
+      "id": 11,
+      "name": "Buy a Feature (Group)",
+      "categories": ["Self-Reportage"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 12,
+      "name": "Discovery Survey",
+      "categories": ["Self-Reportage"],
+      "phase": "Understand Problem Space & Market",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 13,
+      "name": "Storyboard",
+      "categories": ["Self-Reportage", "Watch User with Artefact"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 14,
+      "name": "Offline Pitching",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 1,
+      "costLevel": "Variable"
+    },
+    {
+      "id": 15,
+      "name": "Cold Outreach (Email, Calling)",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": "2-5",
+      "costLevel": "Low"
+    },
+    {
+      "id": 16,
+      "name": "Online/Social Media Post or Paid Ad",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": "2-5",
+      "costLevel": "Variable"
+    },
+    {
+      "id": 17,
+      "name": "1:1 Landing Page Test",
+      "categories": ["Watch User with Artefact", "Self-Reportage"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 1,
+      "costLevel": "Low"
+    },
+    {
+      "id": 43,
+      "name": "Landing Page: Direct Traffic",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 18,
+      "name": "A/B Testing Campaigns & Landing Pages",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 3,
+      "costLevel": "Low"
+    },
+    {
+      "id": 19,
+      "name": "Web Traffic Analysis",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 2,
+      "costLevel": "Variable"
+    },
+    {
+      "id": 20,
+      "name": "Crowdfunding",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 3,
+      "costLevel": "Medium"
+    },
+    {
+      "id": 21,
+      "name": "Video",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 22,
+      "name": "Resource Download",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 1,
+      "costLevel": "Low"
+    },
+    {
+      "id": 23,
+      "name": "Email Series / Newsletter",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 24,
+      "name": "Letter of Intent (LOI)",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 25,
+      "name": "Presale or Waitlist (Fake Door)",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": "4-5",
+      "costLevel": "Low"
+    },
+    {
+      "id": 26,
+      "name": "Redirect to Third-Party Seller",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Test Value Proposition",
+      "evidenceStrength": 4,
+      "costLevel": "Free"
+    },
+    {
+      "id": 27,
+      "name": "Prototype (Low to High Fidelity)",
+      "categories": ["Watch User with Artefact"],
+      "phase": "Early Product",
+      "evidenceStrength": "n/a",
+      "costLevel": "Low"
+    },
+    {
+      "id": 44,
+      "name": "Moderated User Test (1:1)",
+      "categories": ["Watch User with Artefact"],
+      "phase": "Early Product",
+      "evidenceStrength": 4,
+      "costLevel": "Low"
+    },
+    {
+      "id": 45,
+      "name": "Unmoderated User Test",
+      "categories": ["Watch User with Artefact"],
+      "phase": "Early Product",
+      "evidenceStrength": 1,
+      "costLevel": "Low"
+    },
+    {
+      "id": 28,
+      "name": "MVP (Minimum Viable Product)",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Early Product",
+      "evidenceStrength": 3,
+      "costLevel": "Low"
+    },
+    {
+      "id": 29,
+      "name": "Co-creation",
+      "categories": ["Self-Reportage", "Watch User with Artefact"],
+      "phase": "Early Product",
+      "evidenceStrength": 5,
+      "costLevel": "Medium"
+    },
+    {
+      "id": 30,
+      "name": "Concierge",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Early Product",
+      "evidenceStrength": 4,
+      "costLevel": "Medium"
+    },
+    {
+      "id": 31,
+      "name": "Wizard of Oz",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Early Product",
+      "evidenceStrength": 5,
+      "costLevel": "Low"
+    },
+    {
+      "id": 32,
+      "name": "Customer Service/Success Feedback",
+      "categories": ["Self-Reportage"],
+      "phase": "Mature Product",
+      "evidenceStrength": 3,
+      "costLevel": "Low"
+    },
+    {
+      "id": 33,
+      "name": "Sales Force Feedback",
+      "categories": ["Self-Reportage"],
+      "phase": "Mature Product",
+      "evidenceStrength": 3,
+      "costLevel": "Variable"
+    },
+    {
+      "id": 34,
+      "name": "Customer Advisory Board",
+      "categories": ["Self-Reportage"],
+      "phase": "Mature Product",
+      "evidenceStrength": 3,
+      "costLevel": "Low"
+    },
+    {
+      "id": 35,
+      "name": "PMF Audit (Sean Ellis Test)",
+      "categories": ["Self-Reportage"],
+      "phase": "Mature Product",
+      "evidenceStrength": 3,
+      "costLevel": "Low"
+    },
+    {
+      "id": 36,
+      "name": "Surveys (In-App & Email)",
+      "categories": ["Self-Reportage"],
+      "phase": "Mature Product",
+      "evidenceStrength": 3,
+      "costLevel": "Variable"
+    },
+    {
+      "id": 37,
+      "name": "Scrape Review Sites / App Store Reviews",
+      "categories": ["Desktop Research"],
+      "phase": "Mature Product",
+      "evidenceStrength": 2,
+      "costLevel": "Low"
+    },
+    {
+      "id": 38,
+      "name": "Data Analytics",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Mature Product",
+      "evidenceStrength": 5,
+      "costLevel": "Variable"
+    },
+    {
+      "id": 39,
+      "name": "Feature Stub",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Mature Product",
+      "evidenceStrength": 3,
+      "costLevel": "Low"
+    },
+    {
+      "id": 40,
+      "name": "A/B Testing Product Versions/Features",
+      "categories": ["Real-World Behaviour"],
+      "phase": "Mature Product",
+      "evidenceStrength": 4,
+      "costLevel": "Variable"
+    }
+  ]
+}

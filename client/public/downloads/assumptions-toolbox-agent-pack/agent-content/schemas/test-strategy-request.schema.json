@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://assumption-toolbox.local/schemas/test-strategy-request.schema.json",
+  "title": "Test Strategy Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "assumption",
+    "assumptionType",
+    "phase",
+    "riskLevel",
+    "constraints"
+  ],
+  "properties": {
+    "assumption": { "type": "string" },
+    "assumptionType": {
+      "type": "string",
+      "enum": ["desirability", "feasibility", "viability", "usability", "ethics"]
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "Understand Problem Space & Market",
+        "Test Value Proposition",
+        "Early Product",
+        "Mature Product"
+      ]
+    },
+    "riskLevel": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["timeBudgetWeeks", "budgetLevel", "requiresStatisticalSignal"],
+      "properties": {
+        "timeBudgetWeeks": { "type": "integer", "minimum": 1, "maximum": 52 },
+        "budgetLevel": {
+          "type": "string",
+          "enum": ["free", "low", "medium", "high", "variable"]
+        },
+        "requiresStatisticalSignal": { "type": "boolean" },
+        "hasProductArtifact": { "type": "boolean" },
+        "trafficAvailable": { "type": "boolean" },
+        "recruitingAccess": { "type": "boolean" }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "icp": { "type": "string" },
+        "market": { "type": "string" },
+        "currentEvidence": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "knownBlindSpots": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

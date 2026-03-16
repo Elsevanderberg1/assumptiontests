@@ -1,0 +1,157 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-03-15",
+  "sections": [
+    {
+      "id": "quant-vs-qual-hard-vs-soft",
+      "title": "Quant. vs qual; Hard vs soft",
+      "summary": "Quantitative and qualitative evidence are complementary. Use qualitative methods to understand why and quantitative methods to confirm behavior at scale.",
+      "coreConcepts": [
+        "Soft/qualitative evidence explains motivations and reasoning.",
+        "Hard/quantitative evidence validates behavior under real-world conditions.",
+        "Trust behavior signals when qualitative and quantitative findings conflict."
+      ],
+      "pitfalls": [
+        "Self-reported answers can be biased and hypothetical.",
+        "Hard evidence can show what changed but not why."
+      ],
+      "selectionGuidance": [
+        "Start with qualitative methods to sharpen assumptions.",
+        "Then use quantitative methods to validate impact.",
+        "Layer methods when stakes are high."
+      ],
+      "references": [
+        {
+          "label": "Customer interview questions",
+          "url": "https://www.producttalk.org/customer-interview-questions/?srsltid=AfmBOopAHZZMuM4-A9nen8BujvGCngVPNB9DeB_jI8OLO5GjijlzEj-M"
+        },
+        {
+          "label": "Story-based customer interviews",
+          "url": "https://www.producttalk.org/story-based-customer-interviews/?srsltid=AfmBOorLqM6PESQlBoowvfK3-GUqBu2LuuzmideEZJM8a3HlxUtmU0xb"
+        }
+      ]
+    },
+    {
+      "id": "five-overarching-categories",
+      "title": "5 overarching categories",
+      "summary": "Grouping methods by category helps teams pick a stronger test mix and reduce blind spots.",
+      "coreConcepts": [
+        "Pick category first, then select specific methods.",
+        "Each category has predictable strengths and weaknesses.",
+        "A layered category mix improves evidence quality."
+      ],
+      "pitfalls": [
+        "Over-relying on one familiar category creates blind spots.",
+        "Desktop research quality depends heavily on source quality and relevance."
+      ],
+      "selectionGuidance": [
+        "Combine at least two categories for important assumptions.",
+        "Use categories to balance speed, depth, and evidence quality.",
+        "Escalate toward real-world behavior methods for stronger confirmation."
+      ],
+      "relatedMethodIds": [1, 2, 8, 9, 17, 38]
+    },
+    {
+      "id": "by-goal-product-phase",
+      "title": "By goal/product phase",
+      "summary": "Method selection should follow your current product phase and learning goal.",
+      "coreConcepts": [
+        "Problem-space work prioritizes context and motivations.",
+        "Value proposition work tests resonance and messaging.",
+        "Early and mature product phases require stronger behavioral evidence."
+      ],
+      "pitfalls": [
+        "Using late-stage quantitative tests too early can waste time.",
+        "Skipping context methods can produce solution bias."
+      ],
+      "selectionGuidance": [
+        "Align tests with phase: discovery, value-prop, early product, mature product.",
+        "Move from exploratory signal to confirmatory signal as confidence grows."
+      ]
+    },
+    {
+      "id": "ideal-customer-profile-icp",
+      "title": "Ideal Customer Profile (ICP)",
+      "summary": "Strict ICP definition and participant filtering are essential for usable evidence.",
+      "coreConcepts": [
+        "Only recruit and count participants who match your ICP.",
+        "Wrong-participant feedback creates false confidence."
+      ],
+      "pitfalls": [
+        "Non-ICP enthusiasm can be misleading.",
+        "Free-user behavior may not reflect paid-user economics in PLG contexts."
+      ],
+      "selectionGuidance": [
+        "Define exclusion criteria before running tests.",
+        "Segment findings by ICP fit before making decisions."
+      ]
+    },
+    {
+      "id": "testing-assumptions-not-ideas",
+      "title": "Testing assumptions, not ideas",
+      "summary": "Test atomic assumptions (not whole ideas) to isolate what is true or false and reduce wasted effort.",
+      "coreConcepts": [
+        "Ideas bundle multiple assumptions (desirability, feasibility, viability, usability, ethics).",
+        "Single-assumption tests isolate failure points.",
+        "One risky assumption can invalidate multiple idea variants."
+      ],
+      "pitfalls": [
+        "Whole-idea tests produce ambiguous failure signals.",
+        "Skipping low-fidelity tests increases cost without clarity."
+      ],
+      "selectionGuidance": [
+        "Start with the #1 riskiest assumption.",
+        "Run low-cost tests first, then escalate fidelity."
+      ]
+    },
+    {
+      "id": "isolating-mvp-failure-with-ampie",
+      "title": "Isolating your point of (MVP) failure with AMPIE",
+      "summary": "AMPIE helps diagnose where an MVP failed so teams can run targeted follow-up tests.",
+      "coreConcepts": [
+        "A: Audience fit",
+        "M: Messaging clarity",
+        "P: Problem importance",
+        "I: Idea quality",
+        "E: Execution quality"
+      ],
+      "pitfalls": [
+        "Treating a failed MVP metric as a single undifferentiated failure.",
+        "Skipping post-test diagnosis leads to random iteration."
+      ],
+      "selectionGuidance": [
+        "Diagnose AMPIE dimension first, then choose targeted methods.",
+        "Use qualitative follow-up to explain behavioral outcomes."
+      ],
+      "references": [
+        {
+          "label": "Read more: AMPIE article",
+          "url": "https://elsevanderberg.substack.com/p/your-mvp-didnt-fail-you-didnt-set?utm_source=publication-search"
+        }
+      ]
+    },
+    {
+      "id": "reducing-false-positives-negatives",
+      "title": "Reducing risk of false positives/negatives",
+      "summary": "High-stakes assumptions require layered testing across methods and categories.",
+      "coreConcepts": [
+        "Single tests are often insufficient for high-risk decisions.",
+        "Method triangulation reduces false signals."
+      ],
+      "pitfalls": [
+        "Making high-impact decisions from one weak signal.",
+        "Going straight to quantitative tests before fixing obvious qualitative issues."
+      ],
+      "selectionGuidance": [
+        "Run soft/qualitative tests before hard/quantitative tests.",
+        "Confirm with real-world behavior when possible."
+      ],
+      "references": [
+        {
+          "label": "Read more: layered testing",
+          "url": "https://substack.com/home/post/p-167708854"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "version": "1.0.0",
+  "selectionPipeline": [
+    "Classify assumption type and risk level",
+    "Select at least two complementary categories",
+    "Prefer qualitative signal before quantitative confirmation",
+    "Add real-world behaviour validation for high-stakes assumptions",
+    "Return phased sequence with explicit exit criteria"
+  ],
+  "rules": [
+    {
+      "id": "high-risk-must-layer",
+      "priority": 1,
+      "when": {
+        "riskLevelIn": ["high"]
+      },
+      "then": {
+        "recommendCategories": [
+          "Self-Reportage",
+          "Watch User with Artefact",
+          "Real-World Behaviour"
+        ],
+        "minimumMethodCount": 3,
+        "mustIncludeQualThenQuant": true,
+        "reasoning": "High-risk assumptions need triangulation across categories to reduce false positives."
+      }
+    },
+    {
+      "id": "problem-space-discovery",
+      "priority": 2,
+      "when": {
+        "phaseIn": ["Understand Problem Space & Market"]
+      },
+      "then": {
+        "recommendCategories": [
+          "Desktop Research",
+          "Self-Reportage",
+          "Watch User in Environment"
+        ],
+        "minimumMethodCount": 2,
+        "mustIncludeQualThenQuant": false,
+        "reasoning": "Early discovery should combine orientation, motivations, and observed real context."
+      }
+    },
+    {
+      "id": "value-prop-resonance",
+      "priority": 3,
+      "when": {
+        "phaseIn": ["Test Value Proposition"]
+      },
+      "then": {
+        "recommendCategories": [
+          "Watch User with Artefact",
+          "Real-World Behaviour"
+        ],
+        "minimumMethodCount": 2,
+        "mustIncludeQualThenQuant": true,
+        "reasoning": "Resonance should be tested with artefact reactions first, then behavior under real conditions."
+      }
+    },
+    {
+      "id": "no-artifact-yet",
+      "priority": 4,
+      "when": {
+        "hasExistingArtifact": false
+      },
+      "then": {
+        "recommendCategories": [
+          "Desktop Research",
+          "Self-Reportage",
+          "Watch User in Environment"
+        ],
+        "minimumMethodCount": 2,
+        "mustIncludeQualThenQuant": false,
+        "reasoning": "Without an artefact, rely on context and motivation methods before solution testing."
+      }
+    },
+    {
+      "id": "stats-signal-required",
+      "priority": 5,
+      "when": {
+        "requiresStatisticalSignal": true
+      },
+      "then": {
+        "recommendCategories": ["Real-World Behaviour"],
+        "minimumMethodCount": 2,
+        "mustIncludeQualThenQuant": true,
+        "reasoning": "When statistical confidence is required, include traffic-based or behavior-based methods."
+      }
+    }
+  ]
+}

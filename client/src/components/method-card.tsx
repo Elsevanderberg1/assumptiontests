@@ -1,5 +1,5 @@
+import posthog from "posthog-js";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
   AccordionContent,
@@ -10,6 +10,7 @@ import {
   type Method,
   getCategoryColor,
   getPhaseColor,
+  parseEvidenceStrength,
 } from "@/lib/methods-data";
 import { BarChart3, DollarSign, Lightbulb } from "lucide-react";
 
@@ -29,14 +30,6 @@ function EvidenceBar({ strength }: { strength: number | null }) {
       ))}
     </div>
   );
-}
-
-function parseEvidenceStrength(strength: number | string): number | null {
-  if (typeof strength === "number") return strength;
-  if (strength === "n/a") return null;
-  const match = strength.match(/(\d+)/);
-  if (match) return parseInt(match[1], 10);
-  return 3;
 }
 
 export function MethodCard({ method }: { method: Method }) {
@@ -106,7 +99,19 @@ export function MethodCard({ method }: { method: Method }) {
           dangerouslySetInnerHTML={{ __html: method.descriptionShort }}
         />
 
-        <Accordion type="multiple" className="w-full -mx-0">
+        <Accordion
+          type="multiple"
+          className="w-full -mx-0"
+          onValueChange={(openItems) => {
+            if (openItems.length > 0) {
+              posthog.capture("method_card_toggle_opened", {
+                card_id: method.id,
+                card_title: method.name,
+                page_path: window.location.pathname,
+              });
+            }
+          }}
+        >
           <AccordionItem value="evidence" className="border-b-0">
             <AccordionTrigger
               className="text-xs font-medium py-2 hover:no-underline"

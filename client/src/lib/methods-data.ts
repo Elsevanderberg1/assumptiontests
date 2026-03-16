@@ -29,6 +29,14 @@ export interface Method {
   practicalApplication: string;
 }
 
+export function parseEvidenceStrength(strength: number | string): number | null {
+  if (typeof strength === "number") return strength;
+  if (strength === "n/a") return null;
+  const match = strength.match(/(\d+)/);
+  if (match) return parseInt(match[1], 10);
+  return 3;
+}
+
 export const methods: Method[] = [
   {
     id: 1,
