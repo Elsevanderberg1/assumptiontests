@@ -1,68 +1,161 @@
-# Assumption Test Toolbox
+# Assumption Tests Toolbox — Handover Document
 
 ## Overview
-A frontend-only web application displaying 45 business idea discovery and validation research methods as a searchable, filterable card gallery. Includes an interactive theory section. Based on the work of Dr. Else van der Berg.
+
+A frontend-only web application for discovering and selecting assumption test methods. Built for both humans (page) and AI agents (downloadable skill + content pack). Based on the work of Dr. Else van der Berg.
+
+- **Live URL:** deployed via Vercel (connected to GitHub repo `Elsevanderberg1/assumptiontests`)
+- **Local dev:** `npm run dev` inside `Assumption-Explorer/`, open `http://localhost:3000`
+
+---
 
 ## Architecture
-- **Frontend-only**: All data is static and embedded in `client/src/lib/methods-data.ts`
-- **No backend needed**: Users only read, search, and filter cards - no data persistence required
-- **Server**: Express server serves the Vite-built frontend (existing setup)
+
+- **Frontend-only** — all data is static and embedded in `client/src/lib/methods-data.ts`
+- **No backend needed** — Express server (`server/`) is an unused scaffold; it only serves the Vite-built frontend
+- **Feedback collection** — hosted form endpoint via `VITE_FEEDBACK_ENDPOINT` env var (set in Vercel dashboard). No backend database required.
+- **Analytics** — PostHog (not yet wired; see `POSTHOG_SETUP.md` for step-by-step)
+
+---
 
 ## Key Files
-- `client/src/lib/methods-data.ts` - All 45 test method data with types and helper functions. Methods support multiple categories via `categories: Category[]` array.
-- `client/src/pages/home.tsx` - Main page: hero section, mindmap section, search/filter bar, card grid
-- `client/src/components/mindmap-section.tsx` - Interactive SVG mindmap with Framer Motion animations and Radix Dialog popups for theory content
-- `client/src/components/method-card.tsx` - Individual method card component with accordions. Handles "n/a" evidence strength (Prototype card).
-- `client/src/App.tsx` - Router setup
 
-## Features
-- 45 method cards with category, evidence strength, cost, description, and practical application
-- Interactive animated mindmap for the theory section - sequential "draw-on" edges, clickable nodes open Radix Dialogs
-- Expandable accordion sections on each card for evidence details, full description, cost details, and practical application
-- Full-text search across all card fields
-- Multi-select filters: Category (5), Phase (4), Cost Level (5), Evidence Strength (1-5)
-- Responsive grid layout (1/2/3 columns)
-- Sticky search + filter bar (z-40, below Radix Dialog's z-50+)
-- "n/a" evidence strength support (Prototype card) — no bars shown, always visible regardless of evidence filters
-- Methods can belong to multiple categories (shown as multiple badges on card)
+| File | Purpose |
+|---|---|
+| `client/src/pages/home.tsx` | Main page: hero, theory section, method database, agent pack, footer |
+| `client/src/components/mindmap-section.tsx` | Interactive SVG theory map + all theory card content (`THEORY_CONTENT`) |
+| `client/src/components/method-card.tsx` | Individual test method card with accordions |
+| `client/src/components/feedback-widget.tsx` | Floating "Give feedback" button + modal (stars + text) |
+| `client/src/lib/methods-data.ts` | All 45 test methods, types, and `parseEvidenceStrength` helper |
+| `client/src/index.css` | Global styles and Tailwind config |
+| `client/index.html` | HTML entry point; references SVG favicon |
+| `client/public/favicon.svg` | SVG favicon (pink gradient + serif A) |
+| `POSTHOG_SETUP.md` | Step-by-step PostHog analytics setup guide |
+| `CLAUDE.md` | Project-level guardrails for AI agents (snapshot + rollback safety) |
+| `DATA_GLOSSARY.md` | Glossary of data fields used in methods-data.ts |
+| `client/public/downloads/` | Downloadable agent content pack and skill files |
 
-## Categories (5)
-1. Desktop Research - reading online studies, user reviews, forums, search trends, competitor research
-2. Self-Reportage - customer interviews, surveys, focus groups, expert interviews, communities
-3. Watch User in Environment - ethnography
-4. Watch User with Artefact - prototype tests, moderated/unmoderated user tests, co-creation (dual), storyboard (dual)
-5. Real-World Behaviour - landing pages, A/B testing, MVPs, cold outreach, crowdfunding, data analytics, etc.
+---
 
-Dual-category methods: Storyboard and Co-creation belong to both Self-Reportage and Watch User with Artefact. 1:1 Landing Page Test belongs to Watch User with Artefact and Self-Reportage.
+## Theory Mindmap (`mindmap-section.tsx`)
 
-## Design
-- Inspired by Monograph Communications (monographcomms.ca): pink/purple mesh gradient, Playfair Display serif, thin rule dividers
-- Full-page mesh gradient via multiple `radial-gradient(ellipse ...)` layers with `background-attachment: fixed`
-- Glass morphism containers: `bg-white/20 backdrop-blur-sm rounded-2xl border border-white/40`
-- Mindmap color palette: coral (#FECDD3/#BE123C) for center node, purple (#F3E8FF/#9333EA) and violet (#EDE9FE/#7C3AED) for outer nodes
-- Three-section layout: Hero (full viewport, non-sticky) → Theory Mindmap → Test Method Database
-- Uses shadcn/ui Card, Accordion, Badge, Input, Button components
-- Category and phase badges with distinct color coding
-- Evidence strength visualized as a bar chart (hidden for "n/a")
-- Filters toggle with animated expand/collapse
+### Structure
+Three-tier infographic (not a traditional force-directed graph):
+
+```
+Assumption Tests (center)
+  ├── Choosing the right test method (middle, red)
+  │     ├── Quant. vs qual; Hard vs soft
+  │     ├── 5 overarching categories
+  │     └── By goal/product phase
+  ├── Selecting the right test participants (middle, red)
+  │     └── Ideal Customer Profile (ICP)
+  └── Learning faster at lower cost (middle, red)
+        ├── Testing assumptions, not ideas
+        ├── Isolating your point of (MVP) failure with AMPIE
+        └── Reducing risk of false positives/negatives
+```
+
+### Key implementation notes
+- **Desktop:** SVG map on the left, detail panel on the right (`lg:grid-cols-[minmax(0,1fr)_380px]`)
+- **Mobile:** SVG is hidden; replaced with a tappable card list grouped by middle node. Tapping opens a bottom drawer (`Drawer` from vaul).
+- **All theory card copy** lives inside `THEORY_CONTENT` in `mindmap-section.tsx`. Edit text there directly.
+- **The qual-methods image** (`attached_assets/qual-methods-strengths-weaknesses.png`) is embedded in the "5 overarching categories" card via `ZoomableImage` — clicking it opens a fullscreen lightbox overlay.
+- **Node positions** are manual SVG coordinates. If you change node layout, also update `EDGES` paths and the SVG `viewBox`.
+
+---
+
+## Hero Section (`home.tsx`)
+
+```
+H1: Assumption Tests Toolbox  (Playfair Display, clamp serif)
+H2: Most teams overuse a few familiar test methods…
+    The result is weak evidence… [3 lines, same size]
+3 CTA buttons:
+  - Explore theory          → #theory
+  - Browse 45 test methods  → #method-database
+  - Download agent skill    → #agent-pack
+```
+
+CTA buttons have a main label and a sub-label below it. Background is a fixed `radial-gradient` mesh (pink/purple).
+
+---
+
+## Feedback Widget (`feedback-widget.tsx`)
+
+- Floating button bottom-right, **only visible after user has scrolled to the `#theory` section**
+- Opens a modal: 1–5 star rating + free text comment
+- Submits via `fetch` POST to `VITE_FEEDBACK_ENDPOINT` (set this in Vercel env vars)
+- If `VITE_FEEDBACK_ENDPOINT` is not set, submission shows a config error (does not crash)
+- Text uses "tell me" (not "tell us")
+
+---
+
+## Method Database (`home.tsx` + `methods-data.ts`)
+
+- 45 methods with full-text search and multi-select filters (Category, Phase, Cost, Evidence Strength)
+- Sticky filter bar at `z-40`
+- "Clear" button resets all filters
+- Evidence strength `"n/a"` is handled by `parseEvidenceStrength()` in `methods-data.ts` — no bars shown, always passes evidence filter
+
+### 5 Categories
+1. Desktop Research
+2. Self-Reportage (Qual)
+3. Watch User in Environment (Qual)
+4. Watch User with Artefact (Qual)
+5. Real-World Behavior
+
+Dual-category methods: Storyboard, Co-creation, 1:1 Landing Page Test.
+
+---
+
+## Agent Content Pack
+
+Located at `client/public/downloads/assumptions-toolbox-agent-pack/`.  
+Download link in the `#agent-pack` section of the page.  
+Source of truth for theory card copy: `client/src/components/mindmap-section.tsx` (not a separate content file).
+
+---
+
+## Design System
+
+- **Font:** Playfair Display (headings), system sans (body)
+- **Background:** fixed multi-layer `radial-gradient` mesh, base colour `#C39BD2` (also set on `html` to prevent overscroll white flash)
+- **Glass containers:** `bg-white/20 backdrop-blur-sm rounded-2xl border border-white/40`
+- **Mindmap colours:** coral/red for center + middle nodes; blue (`#3c63b5`) for outer clickable nodes
+- **Favicon:** `client/public/favicon.svg` — pink→purple gradient square with serif A
+
+---
 
 ## Running Locally
 
-```
+```bash
 cd "/Users/Else/Documents/assumptionstests site/Assumption-Explorer"
-npm install       # only needed once, or after dependency changes
-npm run dev
+npm install       # only needed once or after dependency changes
+npm run dev       # starts on http://localhost:3000
 ```
 
-Then open **http://localhost:3000** in your browser.
+Stop with `Ctrl+C`. Port 3000 is hardcoded (port 5000 is blocked by macOS AirPlay Receiver).
 
-Notes:
-- Port is set to 3000 (port 5000 is blocked by macOS AirPlay Receiver)
-- No database is currently required for runtime behavior
-- Stop the server with Ctrl+C
+---
 
-## Tech Stack
-- React + TypeScript + Vite
-- Tailwind CSS
-- shadcn/ui components
-- wouter for routing
+## Deploying
+
+- Push to `main` on GitHub → Vercel auto-deploys
+- Remote: `https://github.com/Elsevanderberg1/assumptiontests.git`
+- Environment variables to set in Vercel: `VITE_FEEDBACK_ENDPOINT` (hosted form URL)
+
+---
+
+## Pending / Next Steps
+
+- **PostHog analytics** — not yet wired. Full setup guide in `POSTHOG_SETUP.md`. Key events to track: `theory_card_opened`, filter/search interactions, agent skill download click.
+- **Feedback endpoint** — set `VITE_FEEDBACK_ENDPOINT` in Vercel to activate the feedback form.
+- **`VITE_FEEDBACK_ENDPOINT` already referenced** in `feedback-widget.tsx` — just needs the env var.
+
+---
+
+## Safety Rules for AI Agents
+
+See `CLAUDE.md` (project-level) and `~/.claude/CLAUDE.md` (global) for mandatory snapshot and rollback-confirmation policies.  
+**Never revert/restore/reset files without explicit confirmation from Else first.**
