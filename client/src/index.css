@@ -170,8 +170,15 @@
     @apply border-border;
   }
 
+  /* Prevents white flash when overscrolling on Mac/iOS.
+     #C39BD2 is the solid base layer of the page gradient (see home.tsx). */
+  html {
+    background-color: #C39BD2;
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    background-color: transparent;
   }
 }
 

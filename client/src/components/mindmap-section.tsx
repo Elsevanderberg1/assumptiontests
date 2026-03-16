@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useCallback, useState, type ReactNode } from "react";
 import posthog from "posthog-js";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,6 +10,68 @@ import {
 } from "@/components/ui/drawer";
 import { ExternalLink } from "lucide-react";
 import qualMethodsImage from "@assets/qual-methods-strengths-weaknesses.png";
+
+function ZoomableImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  const [zoomed, setZoomed] = useState(false);
+
+  const close = useCallback((e: React.MouseEvent | React.KeyboardEvent) => {
+    if ("key" in e && e.key !== "Escape" && e.key !== "Enter" && e.key !== " ") return;
+    setZoomed(false);
+  }, []);
+
+  useEffect(() => {
+    if (!zoomed) return;
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setZoomed(false); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [zoomed]);
+
+  return (
+    <figure className="space-y-1.5">
+      <button
+        type="button"
+        onClick={() => setZoomed(true)}
+        className="block w-full rounded-lg overflow-hidden border border-black/10 cursor-zoom-in focus-visible:ring-2 focus-visible:ring-[#3c63b5]"
+        aria-label="Click to enlarge image"
+      >
+        <img src={src} alt={alt} className="w-full block" />
+      </button>
+      {caption && (
+        <figcaption className="text-xs text-black/65">
+          {caption}{" "}
+          <span className="text-black/40 italic">Click to enlarge.</span>
+        </figcaption>
+      )}
+
+      {zoomed && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={alt}
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 cursor-zoom-out"
+          onClick={close}
+          onKeyDown={close}
+          tabIndex={-1}
+        >
+          <img
+            src={src}
+            alt={alt}
+            className="max-w-full max-h-[90dvh] rounded-xl shadow-2xl object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            type="button"
+            onClick={close}
+            className="absolute top-4 right-4 text-white/80 hover:text-white text-3xl leading-none font-light"
+            aria-label="Close enlarged image"
+          >
+            ×
+          </button>
+        </div>
+      )}
+    </figure>
+  );
+}
 
 type TheoryNodeId =
   | "quant-vs-qual"
@@ -228,16 +290,11 @@ const THEORY_CONTENT: Record<TheoryNodeId, { title: string; body: ReactNode }> =
     title: "5 overarching categories",
     body: (
       <div className="space-y-4 text-sm leading-relaxed">
-        <figure className="space-y-2">
-          <img
-            src={qualMethodsImage}
-            alt="Qualitative methods map with strengths and weaknesses"
-            className="w-full rounded-lg border border-black/10"
-          />
-          <figcaption className="text-xs text-black/65">
-            Use this map to choose methods by strengths and weaknesses, not preference.
-          </figcaption>
-        </figure>
+        <ZoomableImage
+          src={qualMethodsImage}
+          alt="Qualitative methods map with strengths and weaknesses"
+          caption="Use this map to choose methods by strengths and weaknesses, not preference."
+        />
         <p>
           Grouping methods by category offers a practical way to pick the right test method. Each test
           method can be associated with one or more test categories. Each category has its own pros and
