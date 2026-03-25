@@ -1,8 +1,14 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "conflictResolution": {
+    "policy": "merge",
+    "description": "When multiple rules fire simultaneously, merge their recommendCategories lists (union) and take the highest minimumMethodCount across all matching rules. Do not drop categories from higher-priority rules in favour of lower-priority ones."
+  },
   "selectionPipeline": [
     "Classify assumption type and risk level",
-    "Select at least two complementary categories",
+    "Evaluate all rules - multiple rules may fire simultaneously",
+    "Merge recommendCategories from all matching rules (union)",
+    "Take the highest minimumMethodCount across matching rules",
     "Prefer qualitative signal before quantitative confirmation",
     "Add real-world behaviour validation for high-stakes assumptions",
     "Return phased sequence with explicit exit criteria"

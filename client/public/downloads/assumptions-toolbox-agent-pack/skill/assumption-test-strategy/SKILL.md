@@ -29,7 +29,7 @@ Use these files as source-of-truth:
 - `agent-content/strategy-rules.json`
 - `agent-content/pack-manifest.json`
 
-If any are missing, say so explicitly and continue with best effort.
+If any files are missing, **stop and state exactly which files could not be found** before proceeding. Do not silently fall back to training-data knowledge without alerting the user.
 
 ---
 
@@ -38,12 +38,18 @@ If any are missing, say so explicitly and continue with best effort.
 Before recommending methods, ensure these are known:
 
 1. **Assumption statement** (what exactly is being tested)
-2. **Risk level + evidence context**
+2. **Assumption type** - is this primarily a:
+   - `desirability` assumption (do people want this?)
+   - `feasibility` assumption (can we build it?)
+   - `viability` assumption (can we make money from it?)
+   - `usability` assumption (can people use it?)
+   - `ethics` assumption (should we build it?)
+3. **Risk level + evidence context**
    - how risky is this assumption for the idea?
    - what evidence already suggests it is true/false?
-3. **Idea context**
+4. **Idea context**
    - what is the product/solution idea?
-4. **Customer opportunity context**
+5. **Customer opportunity context**
    - what customer problem/opportunity is being addressed?
 
 If any are missing, ask concise follow-up questions.  
@@ -77,7 +83,11 @@ Adjust intensity by risk and existing evidence:
   - avoid unnecessary full-blown discovery
   - keep strategy lean
 
-### 3) Layering rule
+### 3) Rule conflict resolution
+
+Multiple rules in `strategy-rules.json` may fire simultaneously (e.g. high risk + discovery phase). When this happens: **merge** the `recommendCategories` lists from all matching rules (union), and take the highest `minimumMethodCount` across them. Do not silently drop categories from a higher-priority rule.
+
+### 4) Layering rule
 
 When recommending methods, ensure the set covers likely weaknesses:
 

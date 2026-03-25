@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-03-15",
+  "lastUpdated": "2026-03-25",
   "methods": [
     {
       "id": 1,
@@ -8,7 +8,12 @@
       "categories": ["Desktop Research"],
       "phase": "Understand Problem Space & Market",
       "evidenceStrength": 1,
-      "costLevel": "Variable"
+      "costLevel": "Variable",
+      "descriptionShort": "Desk research using published studies, industry reports, and public datasets to size a problem or market.",
+      "isPrimarilyQualitative": false,
+      "isPrimarilyQuantitative": false,
+      "requiresProductArtifact": false,
+      "supportsHypothesisTypes": ["desirability", "viability"]
     },
     {
       "id": 2,
@@ -16,7 +21,12 @@
       "categories": ["Desktop Research"],
       "phase": "Understand Problem Space & Market",
       "evidenceStrength": 2,
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Mine Reddit, app stores, forums, and community discussions for unprompted pain signals and language.",
+      "isPrimarilyQualitative": true,
+      "isPrimarilyQuantitative": false,
+      "requiresProductArtifact": false,
+      "supportsHypothesisTypes": ["desirability"]
     },
     {
       "id": 3,
@@ -32,7 +42,12 @@
       "categories": ["Desktop Research"],
       "phase": "Understand Problem Space & Market",
       "evidenceStrength": 2,
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Systematically evaluate competitors as a customer would to reveal gaps, messaging, and pricing signals.",
+      "isPrimarilyQualitative": true,
+      "isPrimarilyQuantitative": false,
+      "requiresProductArtifact": false,
+      "supportsHypothesisTypes": ["desirability", "viability"]
     },
     {
       "id": 5,
@@ -56,7 +71,12 @@
       "categories": ["Self-Reportage"],
       "phase": "Understand Problem Space & Market",
       "evidenceStrength": 3,
-      "costLevel": "Medium"
+      "costLevel": "Medium",
+      "descriptionShort": "Structured 1:1 conversations with domain experts to rapidly orient on a market or technical space.",
+      "isPrimarilyQualitative": true,
+      "isPrimarilyQuantitative": false,
+      "requiresProductArtifact": false,
+      "supportsHypothesisTypes": ["desirability", "feasibility", "viability"]
     },
     {
       "id": 8,
@@ -64,7 +84,12 @@
       "categories": ["Self-Reportage"],
       "phase": "Understand Problem Space & Market",
       "evidenceStrength": 1,
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Story-based 1:1 interviews with target customers focused on past behavior and lived pain, not opinions.",
+      "isPrimarilyQualitative": true,
+      "isPrimarilyQuantitative": false,
+      "requiresProductArtifact": false,
+      "supportsHypothesisTypes": ["desirability", "usability"]
     },
     {
       "id": 41,
@@ -88,7 +113,12 @@
       "categories": ["Watch User in Environment"],
       "phase": "Understand Problem Space & Market",
       "evidenceStrength": 2,
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Observe users in their real work environment to surface behaviors and workarounds they don't think to mention.",
+      "isPrimarilyQualitative": true,
+      "isPrimarilyQuantitative": false,
+      "requiresProductArtifact": false,
+      "supportsHypothesisTypes": ["desirability", "usability"]
     },
     {
       "id": 10,
@@ -112,7 +142,12 @@
       "categories": ["Self-Reportage"],
       "phase": "Understand Problem Space & Market",
       "evidenceStrength": 2,
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Structured survey sent to a broader audience to quantify problem frequency, severity, and segmentation.",
+      "isPrimarilyQualitative": false,
+      "isPrimarilyQuantitative": true,
+      "requiresProductArtifact": false,
+      "supportsHypothesisTypes": ["desirability", "viability"]
     },
     {
       "id": 13,
@@ -136,7 +171,12 @@
       "categories": ["Real-World Behaviour"],
       "phase": "Test Value Proposition",
       "evidenceStrength": "2-5",
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Send unsolicited outreach pitching a value proposition; response and reply rate is a real-world signal of resonance.",
+      "isPrimarilyQualitative": false,
+      "isPrimarilyQuantitative": true,
+      "requiresProductArtifact": false,
+      "supportsHypothesisTypes": ["desirability", "viability"]
     },
     {
       "id": 16,
@@ -144,7 +184,12 @@
       "categories": ["Real-World Behaviour"],
       "phase": "Test Value Proposition",
       "evidenceStrength": "2-5",
-      "costLevel": "Variable"
+      "costLevel": "Variable",
+      "descriptionShort": "Run organic or paid content to measure audience engagement and message-market fit at low cost.",
+      "isPrimarilyQualitative": false,
+      "isPrimarilyQuantitative": true,
+      "requiresProductArtifact": false,
+      "supportsHypothesisTypes": ["desirability", "viability"]
     },
     {
       "id": 17,
@@ -152,7 +197,12 @@
       "categories": ["Watch User with Artefact", "Self-Reportage"],
       "phase": "Test Value Proposition",
       "evidenceStrength": 1,
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Show a landing page to a user in a moderated session and ask them to narrate their understanding and reaction.",
+      "isPrimarilyQualitative": true,
+      "isPrimarilyQuantitative": false,
+      "requiresProductArtifact": true,
+      "supportsHypothesisTypes": ["desirability", "usability"]
     },
     {
       "id": 43,
@@ -160,7 +210,12 @@
       "categories": ["Real-World Behaviour"],
       "phase": "Test Value Proposition",
       "evidenceStrength": 2,
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Drive traffic to a landing page and measure conversion rate as a behavioral signal of value proposition resonance.",
+      "isPrimarilyQualitative": false,
+      "isPrimarilyQuantitative": true,
+      "requiresProductArtifact": true,
+      "supportsHypothesisTypes": ["desirability", "viability"]
     },
     {
       "id": 18,
@@ -224,7 +279,12 @@
       "categories": ["Real-World Behaviour"],
       "phase": "Test Value Proposition",
       "evidenceStrength": "4-5",
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Gate a sign-up or payment flow for a product that doesn't exist yet; real conversion is a strong behavioral signal.",
+      "isPrimarilyQualitative": false,
+      "isPrimarilyQuantitative": true,
+      "requiresProductArtifact": true,
+      "supportsHypothesisTypes": ["desirability", "viability"]
     },
     {
       "id": 26,
@@ -240,7 +300,12 @@
       "categories": ["Watch User with Artefact"],
       "phase": "Early Product",
       "evidenceStrength": "n/a",
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Build a clickable or paper prototype and put it in front of users to observe navigation and comprehension.",
+      "isPrimarilyQualitative": true,
+      "isPrimarilyQuantitative": false,
+      "requiresProductArtifact": true,
+      "supportsHypothesisTypes": ["desirability", "usability", "feasibility"]
     },
     {
       "id": 44,
@@ -248,7 +313,12 @@
       "categories": ["Watch User with Artefact"],
       "phase": "Early Product",
       "evidenceStrength": 4,
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Facilitated 1:1 session where a user attempts tasks on a prototype or live product while you observe and probe.",
+      "isPrimarilyQualitative": true,
+      "isPrimarilyQuantitative": false,
+      "requiresProductArtifact": true,
+      "supportsHypothesisTypes": ["usability", "desirability"]
     },
     {
       "id": 45,
@@ -264,7 +334,12 @@
       "categories": ["Real-World Behaviour"],
       "phase": "Early Product",
       "evidenceStrength": 3,
-      "costLevel": "Low"
+      "costLevel": "Low",
+      "descriptionShort": "Ship the minimum product required to generate real usage behavior and retention signal from target customers.",
+      "isPrimarilyQualitative": false,
+      "isPrimarilyQuantitative": true,
+      "requiresProductArtifact": true,
+      "supportsHypothesisTypes": ["desirability", "usability", "viability", "feasibility"]
     },
     {
       "id": 29,

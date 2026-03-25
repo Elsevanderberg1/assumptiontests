@@ -31,6 +31,17 @@ assumption-testing theory and method catalog in a consistent format.
 - Method definitions:
   - `client/src/lib/methods-data.ts`
 
+## Canonical skill file
+
+The installable SKILL.md lives at:
+
+```
+skill/assumption-test-strategy/SKILL.md
+```
+
+Do **not** maintain a copy inside `agent-content/`. That copy has been removed
+to prevent drift. All edits to the skill prompt belong in the `skill/` location.
+
 ## Recommended workflow
 
 1. Keep UI copy in its existing files.

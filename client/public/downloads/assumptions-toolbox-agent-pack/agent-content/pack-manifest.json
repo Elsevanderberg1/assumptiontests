@@ -26,5 +26,16 @@
     "Test Value Proposition",
     "Early Product",
     "Mature Product"
-  ]
+  ],
+  "evidenceStrengthScale": {
+    "description": "Scale from 1 (softest/most qualitative) to 5 (hardest/most behavioral). Reflects how directly the method captures real-world behavior vs. self-reported opinion.",
+    "values": {
+      "1": "Soft signal - qualitative, self-reported, or highly contextual. Useful for orientation and hypothesis generation.",
+      "2": "Weak-to-moderate signal - provides directional evidence but limited confidence on its own.",
+      "3": "Moderate signal - meaningful evidence; enough to act on when combined with another method.",
+      "4": "Strong signal - direct behavioral or high-fidelity evidence; high confidence when ICP-filtered.",
+      "5": "Hard signal - statistically significant behavioral evidence at scale; sufficient for major investment decisions."
+    },
+    "note": "Methods with string values like '2-5' or '4-5' indicate that strength varies by execution quality and traffic volume."
+  }
 }
