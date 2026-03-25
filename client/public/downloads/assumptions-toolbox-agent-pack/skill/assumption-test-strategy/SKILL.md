@@ -16,6 +16,7 @@ This skill is optimized for concise tactical output:
 - Explain **why** each method is included
 - Explain **pros/cons** of each selected method
 - Explain **layering logic** (how method B/C covers method A weaknesses)
+- **Always close with a "What this strategy doesn't yet cover" section** - this is mandatory, not optional
 - Do **not** output full experiment templates
 
 ---
@@ -99,6 +100,8 @@ When recommending methods, ensure the set covers likely weaknesses:
 
 ## Output Format (concise tactical)
 
+**All 5 sections below are required. Do not stop after section 4.**
+
 Return:
 
 1. **Strategy summary** (2-4 lines)
@@ -131,3 +134,4 @@ Keep concise. Avoid long theory dumps unless explicitly asked.
 - If confidence is low due to missing context, say so and ask for the minimum
   missing detail.
 - Prefer practical recommendations over abstract frameworks.
+- **Never end a response without section 5 ("What this strategy doesn't yet cover").** If you have written sections 1–4 and have not yet written section 5, you are not done.
