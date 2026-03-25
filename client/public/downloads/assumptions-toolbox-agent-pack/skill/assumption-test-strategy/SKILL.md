@@ -99,7 +99,7 @@ When recommending methods, ensure the set covers likely weaknesses:
 
 ## Output Format (concise tactical)
 
-Return:
+Return these 4 sections:
 
 1. **Strategy summary** (2-4 lines)
 2. **Recommended methods (3 by default)**  
@@ -112,24 +112,20 @@ Return:
    - why this combination is stronger than any single method
 4. **Sequence**
    - short ordered list (qual first, then confirmation)
-5. **What this strategy doesn't yet cover**
-   - Identify which of the 5 evidence categories are **absent** from the recommended methods
-   - State what confidence the recommended tests *will* give: what you'll know if they succeed, and what will still be unconfirmed
-   - Name the natural next milestone (e.g. prototype test, MVP/launch) and explain **why** it follows logically:
-     - ground the reasoning in the missing category (e.g. no "Watch User with Artefact" means no solution-resonance signal yet; no "Real-World Behaviour" means no behavioral confirmation at scale)
-     - reference the product phase progression: discovery-phase tests confirm problem existence → value-prop tests introduce an artefact and test resonance → early product tests generate real behavioral evidence
-     - be concrete: name the type of test, what new evidence category it unlocks, and what decision it enables
 
 Keep concise. Avoid long theory dumps unless explicitly asked.
 
-**Self-check before finishing:** confirm all 5 sections are present in your response:
-- [ ] 1. Strategy summary
-- [ ] 2. Recommended methods
-- [ ] 3. Layering rationale
-- [ ] 4. Sequence
-- [ ] 5. What this strategy doesn't yet cover
+---
 
-If any are missing, write them before submitting.
+## What this strategy doesn't yet cover (required)
+
+After writing the 4 sections above, always write this closing section. It is not optional.
+
+Address all three points:
+
+- **Evidence gaps:** which of the 5 categories (Desktop Research / Self-Reportage / Watch User in Environment / Watch User with Artefact / Real-World Behaviour) are absent from the recommended methods, and what blind spot that creates
+- **Confidence after these tests:** what you will and won't know if the tests succeed
+- **Natural next milestone:** name the next test type, explain which missing evidence category it unlocks, and state why it is the logical next step given the product phase progression (discovery → value-prop → early product → mature product)
 
 ---
 
