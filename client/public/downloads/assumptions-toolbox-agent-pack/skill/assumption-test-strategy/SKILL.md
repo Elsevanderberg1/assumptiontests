@@ -99,7 +99,7 @@ When recommending methods, ensure the set covers likely weaknesses:
 
 ## Output Format (concise tactical)
 
-Return these 4 sections:
+Return these 5 sections in order. Do not stop at section 4 — section 5 is part of your response to the user, not a meta-instruction about this skill.
 
 1. **Strategy summary** (2-4 lines)
 2. **Recommended methods (3 by default)**  
@@ -112,20 +112,13 @@ Return these 4 sections:
    - why this combination is stronger than any single method
 4. **Sequence**
    - short ordered list (qual first, then confirmation)
+5. **What this strategy doesn't yet cover**  
+   Write this every time. Address all three points:
+   - **Evidence gaps:** which of the 5 categories (Desktop Research / Self-Reportage / Watch User in Environment / Watch User with Artefact / Real-World Behaviour) are absent from the recommended methods, and what blind spot that creates
+   - **Confidence after these tests:** what you will and won't know if they succeed
+   - **Natural next milestone:** name the next test type, explain which missing category it unlocks, and say why it is the logical next step given the phase progression (discovery → value-prop → early product → mature product)
 
 Keep concise. Avoid long theory dumps unless explicitly asked.
-
----
-
-## What this strategy doesn't yet cover (required)
-
-After writing the 4 sections above, always write this closing section. It is not optional.
-
-Address all three points:
-
-- **Evidence gaps:** which of the 5 categories (Desktop Research / Self-Reportage / Watch User in Environment / Watch User with Artefact / Real-World Behaviour) are absent from the recommended methods, and what blind spot that creates
-- **Confidence after these tests:** what you will and won't know if the tests succeed
-- **Natural next milestone:** name the next test type, explain which missing evidence category it unlocks, and state why it is the logical next step given the product phase progression (discovery → value-prop → early product → mature product)
 
 ---
 
