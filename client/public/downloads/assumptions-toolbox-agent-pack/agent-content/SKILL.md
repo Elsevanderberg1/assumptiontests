@@ -102,6 +102,13 @@ Return:
    - why this combination is stronger than any single method
 4. **Sequence**
    - short ordered list (qual first, then confirmation)
+5. **What this strategy doesn't yet cover**
+   - Identify which of the 5 evidence categories are **absent** from the recommended methods
+   - State what confidence the recommended tests *will* give: what you'll know if they succeed, and what will still be unconfirmed
+   - Name the natural next milestone (e.g. prototype test, MVP/launch) and explain **why** it follows logically:
+     - ground the reasoning in the missing category (e.g. no "Watch User with Artefact" means no solution-resonance signal yet; no "Real-World Behaviour" means no behavioral confirmation at scale)
+     - reference the product phase progression: discovery-phase tests confirm problem existence → value-prop tests introduce an artefact and test resonance → early product tests generate real behavioral evidence
+     - be concrete: name the type of test, what new evidence category it unlocks, and what decision it enables
 
 Keep concise. Avoid long theory dumps unless explicitly asked.
 
