@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import { posthog } from "./posthog";
 
 const app = express();
 const httpServer = createServer(app);
@@ -67,12 +68,22 @@ app.use((req, res, next) => {
     const message = err.message || "Internal Server Error";
 
     console.error("Internal Server Error:", err);
+    posthog?.captureException(err, undefined, { status_code: status });
 
     if (res.headersSent) {
       return next(err);
     }
 
     return res.status(status).json({ message });
+  });
+
+  process.on("SIGTERM", async () => {
+    await posthog?.shutdown();
+    process.exit(0);
+  });
+  process.on("SIGINT", async () => {
+    await posthog?.shutdown();
+    process.exit(0);
   });
 
   // importantly only setup vite in development and after
