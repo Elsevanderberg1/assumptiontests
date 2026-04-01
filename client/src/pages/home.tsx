@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MethodCard } from "@/components/method-card";
 import { MindMapSection } from "@/components/mindmap-section";
-import { FeedbackWidget } from "@/components/feedback-widget";
 import {
   methods,
   categories,
@@ -426,7 +425,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <FeedbackWidget visible={hasReachedTheory} />
+
     </div>
   );
 }
