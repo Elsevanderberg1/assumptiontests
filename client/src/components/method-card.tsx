@@ -12,86 +12,68 @@ import {
   getPhaseColor,
   parseEvidenceStrength,
 } from "@/lib/methods-data";
-import { BarChart3, DollarSign, Lightbulb } from "lucide-react";
 
-function EvidenceBar({ strength }: { strength: number | null }) {
-  if (strength === null) return null;
-  return (
-    <div className="flex items-center gap-1">
-      {[1, 2, 3, 4, 5].map((level) => (
-        <div
-          key={level}
-          className={`h-2 w-5 rounded-sm transition-colors ${
-            level <= strength
-              ? "bg-primary"
-              : "bg-muted"
-          }`}
-        />
-      ))}
-    </div>
-  );
+function evidenceLabel(strength: number | null): string {
+  if (strength === null) return "—";
+  if (strength <= 1) return "Very weak";
+  if (strength <= 2) return "Weak";
+  if (strength <= 3) return "Moderate";
+  if (strength <= 4) return "Strong";
+  return "Very strong";
 }
 
 export function MethodCard({ method }: { method: Method }) {
   const evidenceNum = parseEvidenceStrength(method.evidenceStrength);
-  const evidenceLabel =
+  const evidenceText =
     typeof method.evidenceStrength === "string"
       ? method.evidenceStrength
-      : `${method.evidenceStrength}/5`;
+      : evidenceLabel(evidenceNum);
 
   return (
     <Card
       className="flex flex-col hover-elevate"
       data-testid={`card-method-${method.id}`}
     >
-      <CardHeader className="pb-3 space-y-3">
-        <div className="flex items-start justify-between gap-2 flex-wrap">
-          <div className="flex flex-wrap gap-1">
-            {method.categories.map((cat) => (
-              <span
-                key={cat}
-                className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium ${getCategoryColor(cat)}`}
-                data-testid={`badge-category-${method.id}`}
-              >
-                {cat}
-              </span>
-            ))}
-          </div>
+      <CardHeader className="pb-4 space-y-3">
+        {/* Tag pills - smaller, uniform, editorial register */}
+        <div className="flex flex-wrap items-center gap-1 text-[10px] uppercase tracking-[0.08em] font-medium">
+          {method.categories.map((cat) => (
+            <span
+              key={cat}
+              className={`inline-flex items-center rounded-sm px-1.5 py-[3px] ${getCategoryColor(cat)}`}
+              data-testid={`badge-category-${method.id}`}
+            >
+              {cat}
+            </span>
+          ))}
           <span
-            className={`inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium ${getPhaseColor(method.phase)}`}
+            className={`inline-flex items-center rounded-sm px-1.5 py-[3px] ${getPhaseColor(method.phase)}`}
             data-testid={`badge-phase-${method.id}`}
           >
             {method.phase}
           </span>
         </div>
-        <div>
-          <h3
-            className="text-base font-semibold leading-snug mt-0.5"
-            data-testid={`text-name-${method.id}`}
-          >
-            {method.name}
-          </h3>
-        </div>
+
+        <h3
+          className="text-base font-semibold leading-snug"
+          data-testid={`text-name-${method.id}`}
+        >
+          {method.name}
+        </h3>
       </CardHeader>
 
-      <CardContent className="flex-1 flex flex-col gap-4 pt-0">
-        <div className="space-y-1.5">
-          <div className="flex items-center justify-between gap-2">
-            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
-              <BarChart3 className="h-3.5 w-3.5" />
-              Evidence Strength
-            </div>
-            <span className="text-xs font-semibold tabular-nums">
-              {evidenceLabel}
-            </span>
-          </div>
-          <EvidenceBar strength={evidenceNum} />
-        </div>
-
-        <div className="flex items-center gap-1.5 text-xs">
-          <DollarSign className="h-3.5 w-3.5 text-muted-foreground shrink-0" />
-          <span className="text-muted-foreground font-medium">Cost:</span>
-          <span className="font-medium">{method.costLevel}</span>
+      <CardContent className="flex-1 flex flex-col gap-3.5 pt-0">
+        {/* Inline meta: evidence strength + cost as text only, no icons or bars */}
+        <div className="text-xs text-muted-foreground flex flex-wrap items-baseline gap-x-2 gap-y-1">
+          <span>
+            Evidence:{" "}
+            <span className="text-foreground font-medium">{evidenceText}</span>
+          </span>
+          <span className="text-muted-foreground/40" aria-hidden>·</span>
+          <span>
+            Cost:{" "}
+            <span className="text-foreground font-medium">{method.costLevel}</span>
+          </span>
         </div>
 
         <p
@@ -101,7 +83,7 @@ export function MethodCard({ method }: { method: Method }) {
 
         <Accordion
           type="multiple"
-          className="w-full -mx-0"
+          className="w-full mt-auto"
           onValueChange={(openItems) => {
             if (openItems.length > 0) {
               posthog.capture("method_card_toggle_opened", {
@@ -114,7 +96,7 @@ export function MethodCard({ method }: { method: Method }) {
         >
           <AccordionItem value="evidence" className="border-b-0">
             <AccordionTrigger
-              className="text-xs font-medium py-2 hover:no-underline"
+              className="text-[10.5px] uppercase tracking-[0.1em] font-medium py-1.5 hover:no-underline text-muted-foreground"
               data-testid={`accordion-evidence-${method.id}`}
             >
               Evidence details
@@ -129,7 +111,7 @@ export function MethodCard({ method }: { method: Method }) {
 
           <AccordionItem value="description" className="border-b-0">
             <AccordionTrigger
-              className="text-xs font-medium py-2 hover:no-underline"
+              className="text-[10.5px] uppercase tracking-[0.1em] font-medium py-1.5 hover:no-underline text-muted-foreground"
               data-testid={`accordion-description-${method.id}`}
             >
               Full description
@@ -144,7 +126,7 @@ export function MethodCard({ method }: { method: Method }) {
 
           <AccordionItem value="cost" className="border-b-0">
             <AccordionTrigger
-              className="text-xs font-medium py-2 hover:no-underline"
+              className="text-[10.5px] uppercase tracking-[0.1em] font-medium py-1.5 hover:no-underline text-muted-foreground"
               data-testid={`accordion-cost-${method.id}`}
             >
               Cost details
@@ -158,13 +140,10 @@ export function MethodCard({ method }: { method: Method }) {
 
           <AccordionItem value="application" className="border-b-0">
             <AccordionTrigger
-              className="text-xs font-medium py-2 hover:no-underline"
+              className="text-[10.5px] uppercase tracking-[0.1em] font-medium py-1.5 hover:no-underline text-muted-foreground"
               data-testid={`accordion-application-${method.id}`}
             >
-              <span className="flex items-center gap-1.5">
-                <Lightbulb className="h-3.5 w-3.5" />
-                Practical application
-              </span>
+              Practical application
             </AccordionTrigger>
             <AccordionContent>
               <p className="text-sm text-muted-foreground leading-relaxed">

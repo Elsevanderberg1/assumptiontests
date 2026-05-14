@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import posthog from "posthog-js";
 import { motion, useReducedMotion } from "framer-motion";
-import { Search, X, SlidersHorizontal, ChevronDown, ChevronUp } from "lucide-react";
+import { Search, ChevronDown, ChevronUp } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -271,19 +271,18 @@ export default function Home() {
                   <Button
                     variant="outline"
                     size="default"
-                    className="flex-1 sm:flex-none"
+                    className="flex-1 sm:flex-none gap-1.5"
                     onClick={() => setFiltersExpanded(!filtersExpanded)}
                     aria-expanded={filtersExpanded}
                     data-testid="button-toggle-filters"
                   >
-                    <SlidersHorizontal className="h-4 w-4 mr-2" />
                     Filters
                     {hasActiveFilters && (
-                      <span className="ml-1.5 bg-primary text-primary-foreground rounded-full h-5 w-5 flex items-center justify-center text-xs">
-                        {selectedCategories.length + selectedPhases.length + selectedCosts.length + selectedEvidence.length}
+                      <span className="text-xs font-medium text-muted-foreground tabular-nums">
+                        ({selectedCategories.length + selectedPhases.length + selectedCosts.length + selectedEvidence.length})
                       </span>
                     )}
-                    {filtersExpanded ? <ChevronUp className="h-3.5 w-3.5 ml-1" /> : <ChevronDown className="h-3.5 w-3.5 ml-1" />}
+                    {filtersExpanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
                   </Button>
                   {(hasActiveFilters || searchQuery) && (
                     <Button
@@ -293,7 +292,6 @@ export default function Home() {
                       onClick={clearFilters}
                       data-testid="button-clear-filters"
                     >
-                      <X className="h-4 w-4 mr-1" />
                       Clear
                     </Button>
                   )}
